@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">GlyndwrTimetableSatNav</string>
+    <string name="mainMenuTitle">Glyndwr Timetable SatNav</string>
+    <string name="mapButtonText">Map</string>
+    <string name="timetableButtonText">Timetables</string>
+    <string name="appLogoDesc">Glyndwr Timetable SatNavs Logo</string>
+    <string name="surveyButtonText">User Survey</string>
+    <string name="textLoading">Loading Timetables</string>
+
+    <string name="web_scrape_test">WebScrapeTest</string>
+    <string name="page_title">JSoup Test Activity</string>
+    <string name="edit_hint">Type the url to scrape</string>
+    <string name="web_scrape">Web Scrape</string>
+    <string name="default_url">http://saturn.glyndwr.ac.uk/cisco/</string>
+    <string name="ready">Ready...</string>
+    <string name="timetableTitle">Timetables</string>
+    <string name="searchTerm">Search Timetables</string>
+    <string name="searchButton">Go</string>
+    <string name="searchHint">Search Timetables</string>
+    <string name="closeTimetableDialog">Back</string>
+    <string name="openTimetableContents">Open Timetable</string>
+    <string name="timetableInfo">Timetable Info</string>
+    <string name="dialogTextView">Timetable Details</string>
+    <string name="tIDtext">Timetable ID :</string>
+    <string name="xmlTextView">URL :</string>
+    <string name="weekIDText">Week No :</string>
+    <string name="xmlTextURL">URL</string>
+    <string name="weekButton">Load</string>
+    <string name="tabMon">Mon</string>
+    <string name="tabTue">Tue</string>
+    <string name="tabWed">Wed</string>
+    <string name="tabThur">Thur</string>
+    <string name="tabFri">Fri</string>
+    <string name="navButton">Navigate</string>
+    <string name="EventName">Event Name</string>
+    <string name="EventDetails">Event Details</string>
+
+    <string name="button_close">Close</string>
+
+    <string name="configuration_incomplete_title">Configuration incomplete</string>
+    <string name="configuration_incomplete_message">API credentials needed, please see gradle.properties in project root level.</string>
+    <string name="button_ok">OK</string>
+    <string name="location_permission_request_title">Permission required</string>
+    <string name="location_permission_request_rationale">Access to coarse location is required for faster first fix and for some examples.</string>
+    <string name="location_permission_denied_message">No access to locations. Time to first fix may be severely delayed and some examples may not work!</string>
+    <string name="permission_button_accept">Sure</string>
+    <string name="permission_button_deny">Deny</string>
+</resources>

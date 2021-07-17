@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimetableContents">
+
+    <TextView
+        android:id="@+id/tIDTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/tIDtext"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/xmlTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/xmlTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/xmlTextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/weekTextView"
+        app:layout_constraintEnd_toStartOf="@+id/xmlText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tIDTextView" />
+
+    <Spinner
+        android:id="@+id/weekSpinner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/contentsListView"
+        app:layout_constraintEnd_toStartOf="@+id/buttonUpdateWeek"
+        app:layout_constraintStart_toEndOf="@+id/weekTextView"
+        app:layout_constraintTop_toBottomOf="@+id/xmlText" />
+
+    <TextView
+        android:id="@+id/weekTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="18dp"
+        android:text="@string/weekIDText"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/weekSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xmlTextView" />
+
+    <TextView
+        android:id="@+id/xmlText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/xmlTextURL"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/weekSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/xmlTextView"
+        app:layout_constraintTop_toBottomOf="@+id/tIDTextView" />
+
+    <ListView
+        android:id="@+id/contentsListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUpdateWeek" />
+
+    <Button
+        android:id="@+id/buttonUpdateWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/rounded_corners"
+        android:text="@string/weekButton"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/contentsListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xmlText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

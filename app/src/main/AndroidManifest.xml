@@ -34,7 +34,7 @@
             android:name="com.indooratlas.android.sdk.API_SECRET"
             android:value="@string/indooratlas_api_secret" />
 
-        <activity android:name=".MapActivity"
+        <activity android:name=".MappingActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".TimetableContents" />
         <activity android:name=".TimetablesActivity" />

@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
 
     private static final int REQUEST_CODE_ACCESS_COARSE_LOCATION = 1;
 
-    public static boolean checkLocationPermissions(MapActivity mapActivity)
+    public static boolean checkLocationPermissions(MappingActivity mapActivity)
     {
         return false;
     }   //  public static boolean checkLocationPermissions(MapActivity mapActivity)
@@ -286,7 +286,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 // Opens Map Activity
-                Intent intent = new Intent(getBaseContext(), MapActivity.class);
+                Intent intent = new Intent(getBaseContext(), MappingActivity.class);
                 startActivity(intent);
             }
         });

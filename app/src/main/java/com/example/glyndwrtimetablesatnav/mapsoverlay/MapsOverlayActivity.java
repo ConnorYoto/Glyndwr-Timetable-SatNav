@@ -1,12 +1,16 @@
 package com.example.glyndwrtimetablesatnav.mapsoverlay;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
+
 import com.google.android.material.snackbar.Snackbar;
 //import android.support.design.widget.Snackbar;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 //import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -44,8 +48,7 @@ import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
 @SdkExample(description = R.string.example_googlemaps_overlay_description)
-public class MapsOverlayActivity extends FragmentActivity implements LocationListener, OnMapReadyCallback
-{
+public class MapsOverlayActivity extends FragmentActivity implements LocationListener, OnMapReadyCallback {
     private static final String TAG = "IndoorAtlasExample";
 
     /* used to decide when bitmap should be downscaled */
@@ -61,13 +64,10 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
     private boolean mCameraPositionNeedsUpdating = true; // update on first location
     private boolean mShowIndoorLocation = false;
 
-    private void showBlueDot(LatLng center, double accuracyRadius, double bearing)
-    {
-        if (mCircle == null)
-        {
+    private void showBlueDot(LatLng center, double accuracyRadius, double bearing) {
+        if (mCircle == null) {
             // location can received before map is initialized, ignoring those updates
-            if (mMap != null)
-            {
+            if (mMap != null) {
                 mCircle = mMap.addCircle(new CircleOptions()
                         .center(center)
                         .radius(accuracyRadius)
@@ -80,44 +80,38 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
                         .position(center)
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_blue_dot))
                         .anchor(0.5f, 0.5f)
-                        .rotation((float)bearing)
+                        .rotation((float) bearing)
                         .flat(true));
             }   //  if (mMap != null)
         }   //  if (mCircle == null)
-        else
-        {
+        else {
             // move existing markers position to received location
             mCircle.setCenter(center);
             mCircle.setRadius(accuracyRadius);
             mMarker.setPosition(center);
-            mMarker.setRotation((float)bearing);
+            mMarker.setRotation((float) bearing);
         }   //  else
     }   //  private void showBlueDot(LatLng center, double accuracyRadius, double bearing)
 
     //Listener that handles location change events.
-    private IALocationListener mListener = new IALocationListenerSupport()
-    {
+    private IALocationListener mListener = new IALocationListenerSupport() {
         // Location changed, move marker and camera position.
         @Override
-        public void onLocationChanged(IALocation location)
-        {
+        public void onLocationChanged(IALocation location) {
             Log.d(TAG, "new location received with coordinates: " + location.getLatitude() + "," + location.getLongitude());
-            if (mMap == null)
-            {
+            if (mMap == null) {
                 // location received before map is initialized, ignoring update here
                 return;
             }   //  if (mMap == null)
 
             final LatLng center = new LatLng(location.getLatitude(), location.getLongitude());
 
-            if (mShowIndoorLocation)
-            {
+            if (mShowIndoorLocation) {
                 showBlueDot(center, location.getAccuracy(), location.getBearing());
             }   //  if (mShowIndoorLocation)
 
             // our camera position needs updating if location has significantly changed
-            if (mCameraPositionNeedsUpdating)
-            {
+            if (mCameraPositionNeedsUpdating) {
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(center, 17.5f));
                 mCameraPositionNeedsUpdating = false;
             }   //  if (mCameraPositionNeedsUpdating)
@@ -125,28 +119,22 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
     };  //  private IALocationListener mListener = new IALocationListenerSupport()
 
     //Listener that changes overlay if needed
-    private IARegion.Listener mRegionListener = new IARegion.Listener()
-    {
+    private IARegion.Listener mRegionListener = new IARegion.Listener() {
         @Override
-        public void onEnterRegion(IARegion region)
-        {
-            if (region.getType() == IARegion.TYPE_FLOOR_PLAN)
-            {
+        public void onEnterRegion(IARegion region) {
+            if (region.getType() == IARegion.TYPE_FLOOR_PLAN) {
                 final String newId = region.getId();
                 // Are we entering a new floor plan or coming back the floor plan we just left?
-                if (mGroundOverlay == null || !region.equals(mOverlayFloorPlan))
-                {
+                if (mGroundOverlay == null || !region.equals(mOverlayFloorPlan)) {
                     mCameraPositionNeedsUpdating = true; // entering new fp, need to move camera
-                    if (mGroundOverlay != null)
-                    {
+                    if (mGroundOverlay != null) {
                         mGroundOverlay.remove();
                         mGroundOverlay = null;
                     }   //  if (mGroundOverlay != null)
                     mOverlayFloorPlan = region; // overlay will be this (unless error in loading)
                     fetchFloorPlanBitmap(region.getFloorPlan());
                 }   //  if (mGroundOverlay == null || !region.equals(mOverlayFloorPlan))
-                else
-                {
+                else {
                     mGroundOverlay.setTransparency(0.0f);
                 }   //  else
 
@@ -157,10 +145,8 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
         }   //  public void onEnterRegion(IARegion region)
 
         @Override
-        public void onExitRegion(IARegion region)
-        {
-            if (mGroundOverlay != null)
-            {
+        public void onExitRegion(IARegion region) {
+            if (mGroundOverlay != null) {
                 // Indicate we left this floor plan but leave it there for reference
                 // If we enter another floor plan, this one will be removed and another one loaded
                 mGroundOverlay.setTransparency(0.5f);
@@ -171,10 +157,8 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
     };  //  private IARegion.Listener mRegionListener = new IARegion.Listener()
 
     @Override
-    public void onLocationChanged(Location location)
-    {
-        if (!mShowIndoorLocation)
-        {
+    public void onLocationChanged(Location location) {
+        if (!mShowIndoorLocation) {
             Log.d(TAG, "new LocationService location received with coordinates: " + location.getLatitude()
                     + "," + location.getLongitude());
 
@@ -183,26 +167,22 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
     }   //  public void onLocationChanged(Location location)
 
     @Override
-    public void onProviderDisabled(String provider)
-    {
+    public void onProviderDisabled(String provider) {
 
     }   //  public void onProviderDisabled(String provider)
 
     @Override
-    public void onProviderEnabled(String provider)
-    {
+    public void onProviderEnabled(String provider) {
 
     }   //  public void onProviderEnabled(String provider)
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras)
-    {
+    public void onStatusChanged(String provider, int status, Bundle extras) {
 
     }   //  public void onStatusChanged(String provider, int status, Bundle extras)
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
@@ -217,16 +197,14 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
     }   //  protected void onCreate(Bundle savedInstanceState)
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         // remember to clean up after ourselves
         mIALocationManager.destroy();
     }   //  protected void onDestroy()
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
 
         // enable indoor-outdoor mode, required since SDK 3.2
@@ -243,8 +221,7 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
     }   //  protected void onResume()
 
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         super.onPause();
         // unregister location & region changes
         mIALocationManager.removeLocationUpdates(mListener);
@@ -252,10 +229,19 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
     }   //  protected void onPause()
 
     @Override
-    public void onMapReady(GoogleMap googleMap)
-    {
+    public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         // do not show Google's outdoor location
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         mMap.setMyLocationEnabled(false);
 
         // Setup long click to share the traceId

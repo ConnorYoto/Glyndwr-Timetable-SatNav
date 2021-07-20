@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.glyndwrtimetablesatnav.MainActivity;
+import com.example.glyndwrtimetablesatnav.MappingActivity;
 import com.google.android.material.snackbar.Snackbar;
 //import android.support.design.widget.Snackbar;
 import androidx.fragment.app.FragmentActivity;
@@ -273,7 +273,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     public void onMapReady(GoogleMap googleMap)
     {
         mMap = googleMap;
-        if (!MainActivity.checkLocationPermissions(this))
+        if (!MappingActivity.checkLocationPermissions(this))
         {
             finish(); // Handle permission asking in MapActivity
             return;

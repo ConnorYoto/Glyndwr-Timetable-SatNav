@@ -43,7 +43,7 @@ public class MappingActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_map_list);
         mAdapter = new ExamplesAdapter(this);
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(mAdapter);

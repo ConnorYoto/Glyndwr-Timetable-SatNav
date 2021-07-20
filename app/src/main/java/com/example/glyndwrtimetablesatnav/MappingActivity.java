@@ -61,13 +61,16 @@ public class MappingActivity extends AppCompatActivity
             new AlertDialog.Builder(this)
                     .setTitle(R.string.configuration_incomplete_title)
                     .setMessage(R.string.configuration_incomplete_message)
-                    .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener()
+                    {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        public void onClick(DialogInterface dialog, int which)
+                        {
                             finish();
                         }
                     }).show();
         }   //  if (!isSdkConfigured())
+
     }   //   protected void onCreate(Bundle savedInstanceState)
 
     @Override
@@ -132,9 +135,10 @@ public class MappingActivity extends AppCompatActivity
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_ACCESS_COARSE_LOCATION) {
-            if (grantResults.length == 0
-                    || grantResults[0] == PackageManager.PERMISSION_DENIED) {
+        if (requestCode == REQUEST_CODE_ACCESS_COARSE_LOCATION)
+        {
+            if (grantResults.length == 0 || grantResults[0] == PackageManager.PERMISSION_DENIED)
+            {
                 Toast.makeText(this, R.string.location_permission_denied_message,
                         Toast.LENGTH_LONG).show();
             }
@@ -144,36 +148,41 @@ public class MappingActivity extends AppCompatActivity
     /**
      * Adapter for example activities.
      */
-    class ExamplesAdapter extends BaseAdapter {
-
+    class ExamplesAdapter extends BaseAdapter
+    {
         final ArrayList<ExampleEntry> mExamples;
 
-        ExamplesAdapter(Context context) {
+        ExamplesAdapter(Context context)
+        {
             mExamples = listActivities(context);
         }
 
 
         @Override
-        public int getCount() {
+        public int getCount()
+        {
             return mExamples.size();
         }
 
         @Override
-        public Object getItem(int position) {
+        public Object getItem(int position)
+        {
             return position;
         }
 
         @Override
-        public long getItemId(int position) {
+        public long getItemId(int position)
+        {
             return position;
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
             ExampleEntry entry = mExamples.get(position);
-            if (convertView == null) {
-                convertView = getLayoutInflater().inflate(android.R.layout.simple_list_item_2,
-                        parent, false);
+            if (convertView == null)
+            {
+                convertView = getLayoutInflater().inflate(android.R.layout.simple_list_item_2, parent, false);
             }
             TextView labelText = (TextView) convertView.findViewById(android.R.id.text1);
             TextView descriptionText = (TextView) convertView.findViewById(android.R.id.text2);
@@ -183,23 +192,23 @@ public class MappingActivity extends AppCompatActivity
         }
     }
 
-
     /**
      * Returns a list of activities that are part of this application, skipping
      * those from included libraries and *this* activity.
      */
-    public ArrayList<ExampleEntry> listActivities(Context context) {
-
+    public ArrayList<ExampleEntry> listActivities(Context context)
+    {
         ArrayList<ExampleEntry> result = new ArrayList<>();
-        try {
+        try
+        {
             final String packageName = context.getPackageName();
             PackageManager pm = context.getPackageManager();
             PackageInfo info = pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
 
-            for(ActivityInfo activityInfo : info.activities) {
+            for(ActivityInfo activityInfo : info.activities)
+            {
                 parseExample(activityInfo, result);
             }
-
             return result;
 
         } catch (Exception e) {
@@ -226,7 +235,8 @@ public class MappingActivity extends AppCompatActivity
     }
 
 
-    static class ExampleEntry implements Comparable<ExampleEntry> {
+    static class ExampleEntry implements Comparable<ExampleEntry>
+    {
 
         final ComponentName mComponentName;
 
@@ -234,20 +244,23 @@ public class MappingActivity extends AppCompatActivity
 
         final String mDescription;
 
-        ExampleEntry(ComponentName name, String label, String description) {
+        ExampleEntry(ComponentName name, String label, String description)
+        {
             mComponentName = name;
             mLabel = label;
             mDescription = description;
         }
 
         @Override
-        public int compareTo(ExampleEntry another) {
+        public int compareTo(ExampleEntry another)
+        {
             return mLabel.compareTo(another.mLabel);
         }
     }
 
 
-    private boolean isSdkConfigured() {
+    private boolean isSdkConfigured()
+    {
         return !"api-key-not-set".equals(getString(R.string.indooratlas_api_key))
                 && !"api-secret-not-set".equals(getString(R.string.indooratlas_api_secret));
     }

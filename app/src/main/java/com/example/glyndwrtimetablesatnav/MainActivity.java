@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
     public static boolean checkLocationPermissions(MapActivity mapActivity)
     {
         return false;
-    }
+    }   //  public static boolean checkLocationPermissions(MapActivity mapActivity)
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

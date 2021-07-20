@@ -13,7 +13,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:text="@string/tIDtext"
+        android:text="@string/timetableIDText"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/xmlTextView"
         app:layout_constraintEnd_toEndOf="parent"

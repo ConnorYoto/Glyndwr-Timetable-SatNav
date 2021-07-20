@@ -27,7 +27,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="@string/searchHint"
+        android:hint="@string/searchTerm"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textColor="@android:color/tertiary_text_dark"

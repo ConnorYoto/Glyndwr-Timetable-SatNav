@@ -1,4 +1,5 @@
 <resources>
+    <!-- Main Menu and Titles-->
     <string name="app_name">GlyndwrTimetableSatNav</string>
     <string name="mainMenuTitle">Glyndwr Timetable SatNav</string>
     <string name="mapButtonText">Map</string>
@@ -6,7 +7,7 @@
     <string name="appLogoDesc">Glyndwr Timetable SatNavs Logo</string>
     <string name="surveyButtonText">User Survey</string>
     <string name="textLoading">Loading Timetables</string>
-
+    <!-- Timetables -->
     <string name="web_scrape_test">WebScrapeTest</string>
     <string name="page_title">JSoup Test Activity</string>
     <string name="edit_hint">Type the url to scrape</string>
@@ -16,25 +17,18 @@
     <string name="timetableTitle">Timetables</string>
     <string name="searchTerm">Search Timetables</string>
     <string name="searchButton">Go</string>
-    <string name="searchHint">Search Timetables</string>
     <string name="closeTimetableDialog">Back</string>
     <string name="openTimetableContents">Open Timetable</string>
     <string name="timetableInfo">Timetable Info</string>
     <string name="dialogTextView">Timetable Details</string>
-    <string name="tIDtext">Timetable ID :</string>
+    <string name="timetableIDText">Timetable ID :</string>
     <string name="xmlTextView">URL :</string>
     <string name="weekIDText">Week No :</string>
     <string name="xmlTextURL">URL</string>
     <string name="weekButton">Load</string>
-    <string name="tabMon">Mon</string>
-    <string name="tabTue">Tue</string>
-    <string name="tabWed">Wed</string>
-    <string name="tabThur">Thur</string>
-    <string name="tabFri">Fri</string>
     <string name="navButton">Navigate</string>
     <string name="EventName">Event Name</string>
     <string name="EventDetails">Event Details</string>
-
     <string name="button_close">Close</string>
 
     <string name="configuration_incomplete_title">Configuration incomplete</string>
@@ -45,4 +39,49 @@
     <string name="location_permission_denied_message">No access to locations. Time to first fix may be severely delayed and some examples may not work!</string>
     <string name="permission_button_accept">Sure</string>
     <string name="permission_button_deny">Deny</string>
+    <!-- List Descriptions -->
+    <string name="example_wayfinding_description">Demonstrates usage of IndoorAtlas Wayfinding &amp; PoIs</string>
+    <string name="example_wayfinding_title">Wayfinding &amp; PoIs</string>
+    <string name="example_credentials_title">Set credentials</string>
+    <string name="example_credentials_description">Demonstrates setting credentials from code</string>
+    <string name="example_googlemaps_indoor_title">Google Indoor Maps</string>
+    <string name="example_googlemaps_indoor_description">Demonstrates using IndoorAtlas locations on Google Indoor Maps</string>
+    <string name="example_simple_title">Simple</string>
+    <string name="example_simple_description">Demonstrates basic functionality, shows events as text entries.</string>
+    <string name="example_imageview_title">ImageView</string>
+    <string name="example_imageview_description">Demonstrates showing locations on a floor plan displayed with ImageView.</string>
+    <string name="example_googlemaps_overlay_title">Google Maps - Indoor-outdoor</string>
+    <string name="example_googlemaps_overlay_description">Demonstrates showing location over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS</string>
+    <string name="example_regions_description">Demonstrates automatic region transitions and vertical position information</string>
+    <string name="example_regions_title">Regions</string>
+
+    <!-- Region Strings -->
+    <string name="region_information">Region information</string>
+    <string name="venue_outside">Outside mapped area</string>
+    <string name="venue_inside">In venue</string>
+    <string name="floor_plan_outside">No floor plan</string>
+    <string name="floor_level">Floor level</string>
+    <string name="floor_certainty_percentage">Certainty: %.1f %%</string>
+
+    <!-- Simple Activity -->
+    <string name="button_cancel">Cancel</string>
+    <string name="fastest_interval_label">Fastest interval (milliseconds)</string>
+    <string name="shortest_displacement_label">Shortest displacement (meters)</string>
+    <string name="default_label">use default</string>
+    <string name="dialog_request_options_title">Location request options</string>
+
+    <!-- Radio and location settings example -->
+    <string name="example_location_settings_title">Device radio and location settings</string>
+    <string name="example_location_settings_description">Shows how to verify Bluetooth, WiFi and location settings</string>
+    <string name="text_location_settings_example">Example on how to verify current WiFi, Bluetooth and location mode settings for optimal localization performance.</string>
+    <string name="button_check_wifi_setting">Check WiFi background scanning</string>
+    <string name="button_check_bt_setting">Check Bluetooth status</string>
+    <string name="button_check_location_mode">Check location mode</string>
+    <string name="bt_not_supported">Bluetooth is not supported on this hardware platform</string>
+    <string name="bt_enabled">Bluetooth is enabled</string>
+    <string name="bt_denied">User denied use of bluetooth</string>
+    <string name="wifi_not_supported">WiFi is not supported on this hardware platform</string>
+    <string name="wifi_background_scanning_enabled">WiFi background scanning is enabled</string>
+    <string name="wifi_background_scanning_denied">User denied WiFi background scanning</string>
+    <string name="location_provider_available">Location provider enabled</string>
 </resources>

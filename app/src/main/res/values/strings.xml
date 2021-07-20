@@ -69,6 +69,8 @@
     <string name="shortest_displacement_label">Shortest displacement (meters)</string>
     <string name="default_label">use default</string>
     <string name="dialog_request_options_title">Location request options</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_share">Share…</string>
 
     <!-- Radio and location settings example -->
     <string name="example_location_settings_title">Device radio and location settings</string>

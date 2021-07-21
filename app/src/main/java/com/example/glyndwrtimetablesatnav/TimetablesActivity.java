@@ -90,22 +90,15 @@ public class TimetablesActivity extends AppCompatActivity
     {
         // Initialise it in your activity so that the handler is bound to UI thread
         final Handler handlerUI = new Handler();
-
         // List View
         listview = findViewById(R.id.timetableListView);
         list = new ArrayList<String>();
-
         // Construct the list
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
-
         // Populate this ArrayList
         list.addAll(sqh.ListAllTimetables(db));
-
         // Link the ArrayAdapter to the list view
         listview.setAdapter(adapter);
-
-        //Log.d("list", list.toString());
-
         // List view on click
         // Dialog
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -116,7 +109,6 @@ public class TimetablesActivity extends AppCompatActivity
                 // Open Dialog
                 dialog = new Dialog(context);
                 dialog.setContentView(R.layout.timetable_search_dialog);
-
                 // Dialog Interface
                 String itemValue = (String)listview.getItemAtPosition( position );
                 String[] DialogDetails = itemValue.split(", ");
@@ -124,18 +116,14 @@ public class TimetablesActivity extends AppCompatActivity
                 final String Type = DialogDetails[1];
                 final String XML_URL = DialogDetails[2].replace(" ", "");
                 final String TimetableID = DialogDetails[3].replace(" ", "");
-
                 // Dialog Title
                 TextView timetableDialogTextView = dialog.findViewById(R.id.searchDialogTitle);
                 timetableDialogTextView.setText(Name);
-
                 // Dialog Info
                 TextView timetableDetails = dialog.findViewById(R.id.searchDialogDetails);
                 timetableDetails.setText("Timetable ID = " + TimetableID + "\n" + "Type = " + Type + "\n" + "XML_URL = " + XML_URL);
-
                 scrapeContents(XML_URL, TimetableID);
                 Log.w("SCRAPE DONE: ", "Timetable Contents now populated");
-
                 // Dialog Open Button
                 // Scrape Contents as a method before going to activity
                 Button openButton = dialog.findViewById(R.id.timetableButton);
@@ -150,9 +138,7 @@ public class TimetablesActivity extends AppCompatActivity
                         timetableContentsIntent.putExtra("XML_URL", XML_URL);
                         startActivity(timetableContentsIntent);
                     }
-                });
-                // Open activity
-
+                }); // Open activity
                 // Dialog Close Button
                 Button backButton = dialog.findViewById(R.id.backButton);
                 backButton.setOnClickListener(new View.OnClickListener()
@@ -163,11 +149,9 @@ public class TimetablesActivity extends AppCompatActivity
                         dialog.dismiss();
                     }
                 });
-
                 dialog.show();
             }
         }); // listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
-
         // Search Button + Edit Text
         searchEditText = findViewById(R.id.searchEditText);
         searchButton = findViewById(R.id.searchButton);

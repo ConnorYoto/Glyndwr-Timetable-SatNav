@@ -28,12 +28,9 @@ public class TimetableContents extends AppCompatActivity
     // Database Variables
     OpenDatabase sqh;
     SQLiteDatabase db;
-
     //  Interface
     TextView T_IDText;
     TextView XMLText;
-
-    //  Test
     ArrayList<String> duplicateWeekList;
     ArrayList<String> weekList;
     ArrayList<String> weekContents;
@@ -42,27 +39,22 @@ public class TimetableContents extends AppCompatActivity
     String weekChosen;
     Spinner weekSpinner;
     ArrayAdapter adapter;
-
     // Dialog - sure to go to timetable? Give time to scrape etc
     Dialog dialog2;
     Context context = this;
     Button navButton;
     Button closeButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable_contents);
-
         //  Accepting Variables
         String t_ID = getIntent().getStringExtra("TimetableID");
         String Name = getIntent().getStringExtra("TimetableName");
         String XML_URL = getIntent().getStringExtra("XML_URL");
-
         // Initialise Database
         InitDatabase();
-
         // Action Bar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
@@ -70,7 +62,6 @@ public class TimetableContents extends AppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }   // if (actionBar != null)
         actionBar.setTitle(Name);
-
         //Setup Controls
         setUpControls(t_ID, XML_URL);
     }   // protected void onCreate(Bundle savedInstanceState)
@@ -121,15 +112,12 @@ public class TimetableContents extends AppCompatActivity
             }
         }
         Log.d("Pruned Week List = ", weekList.toString());
-
         //  Timetable ID Text View
         T_IDText = findViewById(R.id.tIDTextView);
         T_IDText.setText("Timetable ID: " + t_ID);
-
         //  XML URL Text View
         XMLText = findViewById(R.id.xmlText);
         XMLText.setText("https://timetables.glyndwr.ac.uk/2021/Semester 1/" + XML_URL);
-
         // Week Spinner
         weekSpinner = findViewById(R.id.weekSpinner);
         adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, weekList);
@@ -146,27 +134,21 @@ public class TimetableContents extends AppCompatActivity
                     Log.w("Week chosen = ", weekChosen);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent)
             {
 
             }
         });
-
         // List View
         weekContentsList = findViewById(R.id.contentsListView);
         weekContents = new ArrayList<String>();
-
         // Construct the List
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, weekContents);
-
         // Show Empty on load
         weekContents.add("Please Select a Week and Load");
-
         // Link the ArrayAdapter to the list view
         weekContentsList.setAdapter(adapter);
-
         // Button Load
         weekButton = findViewById(R.id.buttonUpdateWeek);
         weekButton.setOnClickListener(new View.OnClickListener()
@@ -179,7 +161,6 @@ public class TimetableContents extends AppCompatActivity
                 weekContentsList.setAdapter(adapter);
             }
         });
-
         // Dialog...
         weekContentsList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -189,11 +170,9 @@ public class TimetableContents extends AppCompatActivity
                 // Open Dialog
                 dialog2 = new Dialog(context);
                 dialog2.setContentView(R.layout.timetable_contents_dialog);
-
                 String[] Days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
                 ArrayList<String> dayList = new ArrayList<String>(Arrays.asList(Days));
                 String itemValue = (String)weekContentsList.getItemAtPosition(position);
-
                 if(dayList.contains(itemValue))
                 {
                     DisplayMessage("Not a Timetable");
@@ -224,11 +203,9 @@ public class TimetableContents extends AppCompatActivity
                     // Dialog Title
                     TextView DialogTitle = dialog2.findViewById(R.id.contentsDialogTitle);
                     DialogTitle.setText(DialogName);
-
                     // Dialog Details
                     TextView dialogDetails = dialog2.findViewById(R.id.contentsDialogDetails);
                     dialogDetails.setText(DialogInfo);
-
                     // Dialog Navigate Button
                     navButton = dialog2.findViewById(R.id.navButton);
                     if(Room == "")
@@ -258,11 +235,9 @@ public class TimetableContents extends AppCompatActivity
                         dialog2.dismiss();
                     }
                 });
-
                 dialog2.show();
             }
         }); // weekContentsList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-
     }   // private void setUpControls()
 
     public void DisplayMessage(CharSequence text)

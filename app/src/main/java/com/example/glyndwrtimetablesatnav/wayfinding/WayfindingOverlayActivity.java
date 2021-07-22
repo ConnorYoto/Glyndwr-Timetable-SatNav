@@ -12,7 +12,6 @@ import com.example.glyndwrtimetablesatnav.MainActivity;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.fragment.app.FragmentActivity;
 import com.example.glyndwrtimetablesatnav.R;
-import com.example.glyndwrtimetablesatnav.SdkExample;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -49,11 +48,9 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@SdkExample(description = R.string.example_wayfinding_description)
 public class WayfindingOverlayActivity extends FragmentActivity implements GoogleMap.OnMapClickListener, OnMapReadyCallback
 {
     private static final String TAG = "IndoorAtlasExample";

@@ -20,6 +20,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 // JSoup Imports
+import com.example.glyndwrtimetablesatnav.wayfinding.WayfindingOverlayActivity;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity
     Button mapButton;
     Button timetableButton;
     Button surveyButton;
+    Button mappingButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -179,8 +182,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 // Opens Map Activity
-                Intent intent = new Intent(getBaseContext(), MappingActivity.class);
-                startActivity(intent);
+                Intent mapIntent = new Intent(getBaseContext(), WayfindingOverlayActivity.class);
+                startActivity(mapIntent);
             }
         });
         // Timetables Button
@@ -191,8 +194,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 // Opens Timetables Activity
-                Intent intent = new Intent(getBaseContext(), TimetablesActivity.class);
-                startActivity(intent);
+                Intent timetableIntent = new Intent(getBaseContext(), TimetablesActivity.class);
+                startActivity(timetableIntent);
             }
         });
         // Survey Button
@@ -205,6 +208,17 @@ public class MainActivity extends AppCompatActivity
                 // Opens External Survey
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW).setData( Uri.parse("https://forms.gle/WBVqaUcBv4Dby2Lm9")); // Survey
                 startActivity(browserIntent);
+            }
+        });
+        //  Mapping Button
+        mappingButton = findViewById(R.id.mappingButton);
+        mappingButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent mappingIntent = new Intent(getBaseContext(), MappingActivity.class);
+                startActivity(mappingIntent);
             }
         });
     } // protected void setUpControls() // Menu

@@ -1,7 +1,6 @@
 package com.example.glyndwrtimetablesatnav.googlemapsindoor;
 
 import android.os.Bundle;
-//import android.support.v4.app.FragmentActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,10 +20,9 @@ import com.indooratlas.android.sdk.IALocationListener;
 import com.indooratlas.android.sdk.IALocationManager;
 import com.indooratlas.android.sdk.IALocationRequest;
 import com.indooratlas.android.sdk.IARegion;
+
 import com.example.glyndwrtimetablesatnav.R;
-//import com.indooratlas.android.sdk.examples.R;
 import com.example.glyndwrtimetablesatnav.SdkExample;
-//import com.indooratlas.android.sdk.examples.SdkExample;
 
 import java.util.HashMap;
 import java.util.Map;

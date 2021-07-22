@@ -10,22 +10,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import androidx.appcompat.app.AppCompatActivity;
-//import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.glyndwrtimetablesatnav.R;
 import com.example.glyndwrtimetablesatnav.SdkExample;
 import com.example.glyndwrtimetablesatnav.utils.ExampleUtils;
-//import com.indooratlas.android.sdk.examples.R;
-//import com.indooratlas.android.sdk.examples.SdkExample;
-//import com.indooratlas.android.sdk.examples.utils.ExampleUtils;
+
 
 @SdkExample(description = R.string.example_location_settings_description)
 public class LocationSettingsActivity extends AppCompatActivity
 {
     // This example demonstrates how to access some of the system settings that might affect overall
     // positioning performance with IndoorAtlas SDK.
-
     private static final int WIFI_BACKGROUND_SCANNING_ENABLED_REQUEST_CODE = 100;
     private static final int BT_ENABLED_REQUEST_CODE = 101;
 

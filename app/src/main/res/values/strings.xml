@@ -1,11 +1,12 @@
 <resources>
     <!-- Main Menu and Titles-->
-    <string name="app_name">GlyndwrTimetableSatNav</string>
+    <string name="app_name">Glyndwr Timetable SatNav</string>
     <string name="mainMenuTitle">Glyndwr Timetable SatNav</string>
     <string name="mapButtonText">Map</string>
     <string name="timetableButtonText">Timetables</string>
     <string name="appLogoDesc">Glyndwr Timetable SatNavs Logo</string>
     <string name="surveyButtonText">User Survey</string>
+    <string name="mappingButton">Mapping</string>
     <string name="textLoading">Loading Timetables</string>
     <string name="POIname">POI</string>
     <!-- Timetables -->

@@ -4,12 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.google.android.material.snackbar.Snackbar;
-//import android.support.design.widget.Snackbar;
 import android.view.View;
 
 import com.indooratlas.android.sdk.IALocationManager;
 import com.example.glyndwrtimetablesatnav.R;
-//import com.indooratlas.android.sdk.examples.R;
 
 public class ExampleUtils
 {

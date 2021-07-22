@@ -1,7 +1,5 @@
 package com.example.glyndwrtimetablesatnav;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -11,12 +9,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +17,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 
 // Entry into mapping examples for testing mapping capabilities
@@ -154,17 +145,13 @@ public class MappingActivity extends AppCompatActivity
         } catch (ClassNotFoundException e) {
             Log.e(TAG, "failed to read example info for class: " + info.name, e);
         }
-
     }
 
 
     static class ExampleEntry implements Comparable<ExampleEntry>
     {
-
         final ComponentName mComponentName;
-
         final String mLabel;
-
         final String mDescription;
 
         ExampleEntry(ComponentName name, String label, String description)

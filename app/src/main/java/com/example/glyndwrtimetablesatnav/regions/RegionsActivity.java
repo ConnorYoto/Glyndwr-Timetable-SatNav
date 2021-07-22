@@ -2,9 +2,7 @@ package com.example.glyndwrtimetablesatnav.regions;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-//import android.support.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
-//import android.support.v4.app.FragmentActivity;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
@@ -14,9 +12,7 @@ import com.indooratlas.android.sdk.IALocationManager;
 import com.indooratlas.android.sdk.IALocationRequest;
 import com.indooratlas.android.sdk.IARegion;
 import com.example.glyndwrtimetablesatnav.R;
-//import com.indooratlas.android.sdk.examples.R;
 import com.example.glyndwrtimetablesatnav.SdkExample;
-//import com.indooratlas.android.sdk.examples.SdkExample;
 
 //Demonstrates automatic region transitions and floor level certainty
 @SdkExample(description = R.string.example_regions_description)

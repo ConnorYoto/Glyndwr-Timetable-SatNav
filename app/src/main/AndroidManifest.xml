@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.glyndwrtimetablesatnav">
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,17 +30,18 @@
             android:name="com.indooratlas.android.sdk.API_SECRET"
             android:value="@string/indooratlas_api_secret" />
 
-        <activity android:name=".MappingActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".TimetableContents" />
-        <activity android:name=".TimetablesActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MappingActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".TimetableContents"
+            android:screenOrientation="portrait" />
+        <activity android:name=".TimetablesActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".imageview.ImageViewActivity"
             android:label="@string/example_imageview_title"
@@ -53,17 +50,13 @@
             android:name=".regions.RegionsActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/example_regions_title" />
-
         <activity
             android:name=".locationsettings.LocationSettingsActivity"
             android:label="@string/example_location_settings_title" />
-
         <activity
             android:name=".wayfinding.WayfindingOverlayActivity"
             android:label="@string/example_wayfinding_title"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".googlemapsindoor.GoogleMapsIndoorActivity"
             android:label="@string/example_googlemaps_indoor_title"
@@ -78,7 +71,5 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
-
     </application>
-
 </manifest>

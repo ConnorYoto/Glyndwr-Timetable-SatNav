@@ -56,7 +56,6 @@ public class MappingActivity extends AppCompatActivity
                         }
                     }).show();
         }   //  if (!isSdkConfigured())
-
     }   //   protected void onCreate(Bundle savedInstanceState)
 
     /**
@@ -65,12 +64,10 @@ public class MappingActivity extends AppCompatActivity
     class ExamplesAdapter extends BaseAdapter
     {
         final ArrayList<ExampleEntry> mExamples;
-
         ExamplesAdapter(Context context)
         {
             mExamples = listActivities(context);
         }
-
 
         @Override
         public int getCount()

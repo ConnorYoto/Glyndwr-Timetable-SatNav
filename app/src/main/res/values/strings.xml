@@ -9,6 +9,7 @@
     <string name="mappingButton">Mapping</string>
     <string name="textLoading">Loading Timetables</string>
     <string name="POIname">POI</string>
+    <string name="POIText">POI: </string>
     <!-- Timetables -->
     <string name="web_scrape_test">WebScrapeTest</string>
     <string name="page_title">JSoup Test Activity</string>

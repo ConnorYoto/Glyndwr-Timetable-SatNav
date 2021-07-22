@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.glyndwrtimetablesatnav.MainActivity;
 import com.google.android.material.snackbar.Snackbar;
@@ -227,6 +228,8 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         {
             String POI = POIS.getString("POI");
             Log.w("POI = ", POI);
+            TextView POIName = findViewById(R.id.POIName);
+            POIName.setText("POI: " + POI) ;
         }
         catch(Exception e)
         {
@@ -304,6 +307,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         }); //  mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
     }   //  public void onMapReady(GoogleMap googleMap)
 
+    @SuppressLint("LogNotTimber")
     private void setupPoIs(List<IAPOI> pois, int currentFloorLevel)
     {
         Log.d(TAG, pois.size() + " PoI(s)");
@@ -425,6 +429,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         }   //  if (mPoIMarkers.isEmpty())
     }   //  public void onMapClick(LatLng point)
 
+    @SuppressLint("LogNotTimber")
     private void setWayfindingTarget(LatLng point, boolean addMarker)
     {
         if (mMap == null)

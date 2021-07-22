@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,8 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.glyndwrtimetablesatnav.wayfinding.WayfindingOverlayActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,6 +47,8 @@ public class TimetableContents extends AppCompatActivity
     Context context = this;
     Button navButton;
     Button closeButton;
+    Bundle poiBundle = new Bundle();
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -214,12 +219,18 @@ public class TimetableContents extends AppCompatActivity
                     }
                     else
                     {
+                        final String POI = Room;
+                        poiBundle.putString("POI", POI);
                         navButton.setOnClickListener(new View.OnClickListener()
                         {
                             @Override
                             public void onClick(View v)
                             {
-                                // Open Map Activity + Pass Room
+                                // Open Wayfinding Activity + Pass Room
+                                Intent intent = new Intent(getBaseContext(), WayfindingOverlayActivity.class);
+                                intent.putExtras(poiBundle);
+                                Log.w("Room = ", POI);
+                                startActivity(intent);
                             }
                         });
                         // Open activity

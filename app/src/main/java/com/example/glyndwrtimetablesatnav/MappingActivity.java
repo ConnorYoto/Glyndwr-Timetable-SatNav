@@ -13,13 +13,9 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-//import android.support.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-//import android.support.v4.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-//import android.support.v4.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
-//import android.support.v7.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
@@ -36,7 +32,6 @@ import java.util.ArrayList;
 public class MappingActivity extends AppCompatActivity
 {
     private static final String TAG = "IAExample";
-    private static final int REQUEST_CODE_ACCESS_COARSE_LOCATION = 1;
     private ExamplesAdapter mAdapter;
 
     @Override
@@ -72,78 +67,6 @@ public class MappingActivity extends AppCompatActivity
         }   //  if (!isSdkConfigured())
 
     }   //   protected void onCreate(Bundle savedInstanceState)
-
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-        if (isSdkConfigured())
-        {
-            ensurePermissions();
-        }   //  if (isSdkConfigured())
-    }   //  protected void onResume()
-
-    public static boolean checkLocationPermissions(Activity activity)
-    {
-        return ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
-    }   //  public static boolean checkLocationPermissions(Activity activity)
-
-    //  Checks that we have access to required information, if not ask for users permission.
-    private void ensurePermissions()
-    {
-        if (!checkLocationPermissions(this))
-        {
-            // We don't have access to FINE_LOCATION (Required by Google Maps example)
-            // IndoorAtlas SDK has minimum requirement of COARSE_LOCATION to enable WiFi scanning
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION))
-            {
-                new AlertDialog.Builder(this).setTitle(R.string.location_permission_request_title)
-                        .setMessage(R.string.location_permission_request_rationale)
-                        .setPositiveButton(R.string.permission_button_accept, new DialogInterface.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which)
-                            {
-                                Log.d(TAG, "request permissions");
-                                ActivityCompat.requestPermissions(MappingActivity.this,
-                                        new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
-                                                Manifest.permission.ACCESS_FINE_LOCATION},
-                                        REQUEST_CODE_ACCESS_COARSE_LOCATION);
-                            }   //  public void onClick(DialogInterface dialog, int which)
-                        })  //  .setPositiveButton(R.string.permission_button_accept, new DialogInterface.OnClickListener()
-                        .setNegativeButton(R.string.permission_button_deny, new DialogInterface.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which)
-                            {
-                                Toast.makeText(MappingActivity.this,
-                                        R.string.location_permission_denied_message,
-                                        Toast.LENGTH_LONG).show();
-                            }   //  public void onClick(DialogInterface dialog, int which)
-                        })  //  .setNegativeButton(R.string.permission_button_deny, new DialogInterface.OnClickListener()
-                        .show();
-            }
-            else
-            {
-                // ask user for permission
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
-                                Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE_ACCESS_COARSE_LOCATION);
-            }   //  else
-        }   //  if (!checkLocationPermissions(this))
-    }   //  private void ensurePermissions()
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_ACCESS_COARSE_LOCATION)
-        {
-            if (grantResults.length == 0 || grantResults[0] == PackageManager.PERMISSION_DENIED)
-            {
-                Toast.makeText(this, R.string.location_permission_denied_message,
-                        Toast.LENGTH_LONG).show();
-            }
-        }
-    }
 
     /**
      * Adapter for example activities.
@@ -258,12 +181,9 @@ public class MappingActivity extends AppCompatActivity
         }
     }
 
-
-    private boolean isSdkConfigured()
+    protected boolean isSdkConfigured()
     {
         return !"api-key-not-set".equals(getString(R.string.indooratlas_api_key))
                 && !"api-secret-not-set".equals(getString(R.string.indooratlas_api_secret));
     }
-
-
 }

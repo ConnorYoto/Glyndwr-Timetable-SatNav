@@ -1,8 +1,17 @@
 package com.example.glyndwrtimetablesatnav;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,6 +39,9 @@ public class MainActivity extends AppCompatActivity
     private static final String DATABASE_PATH2 = "/data/data/com.example.glyndwrtimetablesatnav/databases"; // no / at end of path !!!
     private static final String DATABASE_NAME = "timetable_db5.db";
     private static final String LOG_TAG = "TIMETABLE_DB5";
+
+    private static final int REQUEST_CODE_ACCESS_COARSE_LOCATION = 1;
+    private static final String TAG = "IAExample";
 
     // Database Variables
     Context ctx;
@@ -126,12 +138,10 @@ public class MainActivity extends AppCompatActivity
     {
         // Get the SQLite database in the assets folder
         InputStream in = ctx.getAssets().open(DATABASE_NAME);
-
         // LOG TAG for LOGCAT - Starting to Copy
         Log.w( LOG_TAG , "Starting to copy Database from Assets...");
         String outputFileName = DATABASE_PATH + DATABASE_NAME;
         File databaseFolder = new File( DATABASE_PATH2 );
-
         // Databases folder exists? No - Create it and copy !!!
         if ( !databaseFolder.exists() )
         {
@@ -173,7 +183,6 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-
         // Timetables Button
         timetableButton = findViewById(R.id.timetableButton);
         timetableButton.setOnClickListener(new View.OnClickListener()
@@ -186,7 +195,6 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-
         // Survey Button
         surveyButton = findViewById(R.id.surveyButton);
         surveyButton.setOnClickListener(new View.OnClickListener()
@@ -201,4 +209,82 @@ public class MainActivity extends AppCompatActivity
         });
     } // protected void setUpControls() // Menu
 
+    // Location Permissions for app
+    public static boolean checkLocationPermissions(Activity activity)
+    {
+        return ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }   //  public static boolean checkLocationPermissions(Activity activity)
+
+    //  Checks that we have access to required information, if not ask for users permission.
+    private void ensurePermissions()
+    {
+        if (!checkLocationPermissions(this))
+        {
+            // We don't have access to FINE_LOCATION (Required by Google Maps example)
+            // IndoorAtlas SDK has minimum requirement of COARSE_LOCATION to enable WiFi scanning
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION))
+            {
+                new AlertDialog.Builder(this).setTitle(R.string.location_permission_request_title)
+                        .setMessage(R.string.location_permission_request_rationale)
+                        .setPositiveButton(R.string.permission_button_accept, new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                Log.d(TAG, "request permissions");
+                                ActivityCompat.requestPermissions(MainActivity.this,
+                                        new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+                                                Manifest.permission.ACCESS_FINE_LOCATION},
+                                        REQUEST_CODE_ACCESS_COARSE_LOCATION);
+                            }   //  public void onClick(DialogInterface dialog, int which)
+                        })  //  .setPositiveButton(R.string.permission_button_accept, new DialogInterface.OnClickListener()
+                        .setNegativeButton(R.string.permission_button_deny, new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                Toast.makeText(MainActivity.this,
+                                        R.string.location_permission_denied_message,
+                                        Toast.LENGTH_LONG).show();
+                            }   //  public void onClick(DialogInterface dialog, int which)
+                        })  //  .setNegativeButton(R.string.permission_button_deny, new DialogInterface.OnClickListener()
+                        .show();
+            }
+            else
+            {
+                // ask user for permission
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE_ACCESS_COARSE_LOCATION);
+            }   //  else
+        }   //  if (!checkLocationPermissions(this))
+    }   //  private void ensurePermissions()
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_ACCESS_COARSE_LOCATION)
+        {
+            if (grantResults.length == 0 || grantResults[0] == PackageManager.PERMISSION_DENIED)
+            {
+                Toast.makeText(this, R.string.location_permission_denied_message,
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if (isSdkConfigured())
+        {
+            ensurePermissions();
+        }   //  if (isSdkConfigured())
+    }   //  protected void onResume()
+
+    protected boolean isSdkConfigured()
+    {
+        return !"api-key-not-set".equals(getString(R.string.indooratlas_api_key))
+                && !"api-secret-not-set".equals(getString(R.string.indooratlas_api_secret));
+    }
 } // public class MainActivity extends AppCompatActivity

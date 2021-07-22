@@ -1,22 +1,18 @@
 package com.example.glyndwrtimetablesatnav.wayfinding;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.glyndwrtimetablesatnav.MappingActivity;
+import com.example.glyndwrtimetablesatnav.MainActivity;
 import com.google.android.material.snackbar.Snackbar;
-//import android.support.design.widget.Snackbar;
 import androidx.fragment.app.FragmentActivity;
-//import android.support.v4.app.FragmentActivity;
-//import com.indooratlas.android.sdk.examples.ListExamplesActivity;
 import com.example.glyndwrtimetablesatnav.R;
-//import com.indooratlas.android.sdk.examples.R;
 import com.example.glyndwrtimetablesatnav.SdkExample;
-//import com.indooratlas.android.sdk.examples.SdkExample;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -53,6 +49,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -226,6 +223,18 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         mIALocationManager = IALocationManager.create(this);
         // Try to obtain the map from the SupportMapFragment.
         ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
+        Intent intent = getIntent();
+        Bundle POIS = intent.getExtras();
+        //  Accepting Variables
+        try
+        {
+            String POI = POIS.getString("POI");
+            Log.w("POI = ", POI);
+        }
+        catch(Exception e)
+        {
+            Log.w("Error: ", e.getMessage());
+        }
     }   //  protected void onCreate(Bundle savedInstanceState)
 
     @Override
@@ -273,7 +282,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     public void onMapReady(GoogleMap googleMap)
     {
         mMap = googleMap;
-        if (!MappingActivity.checkLocationPermissions(this))
+        if (!MainActivity.checkLocationPermissions(this))
         {
             finish(); // Handle permission asking in MapActivity
             return;

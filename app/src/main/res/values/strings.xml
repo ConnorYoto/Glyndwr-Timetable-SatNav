@@ -7,6 +7,7 @@
     <string name="appLogoDesc">Glyndwr Timetable SatNavs Logo</string>
     <string name="surveyButtonText">User Survey</string>
     <string name="textLoading">Loading Timetables</string>
+    <string name="POIname">POI</string>
     <!-- Timetables -->
     <string name="web_scrape_test">WebScrapeTest</string>
     <string name="page_title">JSoup Test Activity</string>
@@ -50,8 +51,6 @@
     <string name="example_simple_description">Demonstrates basic functionality, shows events as text entries.</string>
     <string name="example_imageview_title">ImageView</string>
     <string name="example_imageview_description">Demonstrates showing locations on a floor plan displayed with ImageView.</string>
-    <string name="example_googlemaps_overlay_title">Google Maps - Indoor-outdoor</string>
-    <string name="example_googlemaps_overlay_description">Demonstrates showing location over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS</string>
     <string name="example_regions_description">Demonstrates automatic region transitions and vertical position information</string>
     <string name="example_regions_title">Regions</string>
 

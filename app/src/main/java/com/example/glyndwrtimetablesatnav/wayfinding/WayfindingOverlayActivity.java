@@ -111,6 +111,8 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     };  //  private IAOrientationListener mOrientationListener = new IAOrientationListener()
 
     private int mFloor;
+    private String PoiName;
+    private String externalPOI;
 
     private void showLocationCircle(LatLng center, double accuracyRadius)
     {
@@ -155,6 +157,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     private IALocationListener mListener = new IALocationListenerSupport()
     {
         // Location changed, move marker and camera position.
+        @SuppressLint("LogNotTimber")
         @Override
         public void onLocationChanged(IALocation location)
         {
@@ -184,6 +187,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     // Listener that changes overlay if needed
     private IARegion.Listener mRegionListener = new IARegion.Listener()
     {
+        @SuppressLint("LogNotTimber")
         @Override
         public void onEnterRegion(final IARegion region)
         {
@@ -228,10 +232,10 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         //  Accepting Variables
         try
         {
-            String POI = POIS.getString("POI");
-            Log.w("POI = ", POI);
+            externalPOI = POIS.getString("POI");
+            Log.w("POI = ", externalPOI);
             TextView POIName = findViewById(R.id.POIName);
-            POIName.setText("POI: " + POI) ;
+            POIName.setText("POI: " + externalPOI) ;
         }
         catch(Exception e)
         {
@@ -294,14 +298,19 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         mMap.setOnMapClickListener(this);
         // disable various Google maps UI elements that do not work indoors
         mMap.getUiSettings().setMapToolbarEnabled(false);
+        // mMap.addMarker() ------------------------------------------------
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
         {
             @Override
             public boolean onMarkerClick(Marker marker)
             {
                 // ignore clicks to artificial wayfinding target markers
-                if (marker == mDestinationMarker) return false;
-
+                if (marker == mDestinationMarker)
+                {
+                    return false;
+                }
+                TextView POI = findViewById(R.id.POIName);
+                POI.setText("POI: " + marker.getTitle());
                 setWayfindingTarget(marker.getPosition(), false);
                 // do not consume the event so that the popup with marker name is displayed
                 return false;
@@ -354,6 +363,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     }   //  private void setupGroundOverlay(IAFloorPlan floorPlan, Bitmap bitmap)
 
     //Download floor plan using Picasso library.
+    @SuppressLint("LogNotTimber")
     private void fetchFloorPlanBitmap(final IAFloorPlan floorPlan)
     {
         if (floorPlan == null)
@@ -453,8 +463,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         }   //  if (mDestinationMarker != null)
         if (addMarker)
         {
-            mDestinationMarker = mMap.addMarker(new MarkerOptions().position(point)
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+            mDestinationMarker = mMap.addMarker(new MarkerOptions().position(point).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         }   //  if (addMarker)
         Log.d(TAG, "Set destination: (" + mWayfindingDestination.getLatitude() + ", " + mWayfindingDestination.getLongitude() + "), floor=" +
                 mWayfindingDestination.getFloor());

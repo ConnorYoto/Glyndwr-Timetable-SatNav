@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.glyndwrtimetablesatnav.MainActivity;
+import com.example.glyndwrtimetablesatnav.MapTypes;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.fragment.app.FragmentActivity;
 import com.example.glyndwrtimetablesatnav.R;
@@ -52,9 +53,10 @@ import com.squareup.picasso.Target;
 import java.util.ArrayList;
 import java.util.List;
 
+@MapTypes(description = R.string.wayfinding_description)
 public class WayfindingOverlayActivity extends FragmentActivity implements GoogleMap.OnMapClickListener, OnMapReadyCallback
 {
-    private static final String TAG = "IndoorAtlasExample";
+    private static final String TAG = "IndoorAtlasMapType";
 
     /* used to decide when bitmap should be downscaled */
     private static final int MAX_DIMENSION = 2048;

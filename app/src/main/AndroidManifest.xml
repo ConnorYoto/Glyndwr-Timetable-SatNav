@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true"/>
@@ -43,24 +45,54 @@
         <activity android:name=".TimetablesActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".wayfinding.WayfindingOverlayActivity"
+            android:label="@string/wayfinding_title"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".imageview.ImageViewActivity"
-            android:label="@string/example_imageview_title"
+            android:label="@string/imageview_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".simple.SimpleActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/simple_title" />
+        <activity
+            android:name=".mapsoverlay.MapsOverlayActivity"
+            android:label="@string/googlemaps_overlay_title"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".credentials.CredentialsFromCodeActivity"
+            android:label="@string/credentials_title" />
+        <activity
+            android:name=".orientation.OrientationActivity"
+            android:label="@string/orientation_title"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".geofence.GeofenceMapsOverlayActivity"
+            android:label="@string/googlemaps_overlay_geofencing_title"
             android:screenOrientation="portrait" />
         <activity
             android:name=".regions.RegionsActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/example_regions_title" />
+            android:label="@string/regions_title" />
         <activity
             android:name=".locationsettings.LocationSettingsActivity"
-            android:label="@string/example_location_settings_title" />
-        <activity
-            android:name=".wayfinding.WayfindingOverlayActivity"
-            android:label="@string/example_wayfinding_title"
-            android:screenOrientation="portrait" />
+            android:label="@string/location_settings_title" />
+
         <activity
             android:name=".googlemapsindoor.GoogleMapsIndoorActivity"
-            android:label="@string/example_googlemaps_indoor_title"
+            android:label="@string/googlemaps_indoor_title"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".lockfloor.LockFloorActivity"
+            android:label="@string/lockfloor_title"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".foregroundservice.ForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

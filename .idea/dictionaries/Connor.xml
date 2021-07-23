@@ -1,7 +1,25 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Connor">
     <words>
+      <w>coords</w>
+      <w>filepaths</w>
+      <w>fileprovider</w>
+      <w>foregroundservice</w>
+      <w>geofence</w>
+      <w>geofences</w>
+      <w>geofencing</w>
+      <w>glyndwrtimetablesatnav</w>
+      <w>googlemaps</w>
+      <w>googlemapsindoor</w>
+      <w>imageview</w>
+      <w>locationsettings</w>
+      <w>lockfloor</w>
       <w>pois</w>
+      <w>prog</w>
+      <w>quat</w>
+      <w>startforeground</w>
+      <w>stopforeground</w>
+      <w>wayfinding</w>
     </words>
   </dictionary>
 </component>

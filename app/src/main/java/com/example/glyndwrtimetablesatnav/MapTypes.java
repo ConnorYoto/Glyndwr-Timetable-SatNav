@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface SdkExample {
+public @interface MapTypes {
 
     /**
      * Resource identifier that's content will be shown in first line in examples list entry. If

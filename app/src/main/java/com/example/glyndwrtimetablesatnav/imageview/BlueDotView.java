@@ -27,21 +27,25 @@ public class BlueDotView extends SubsamplingScaleImageView
     public void setUncertaintyRadius(float uncertaintyRadius)
     {
         this.uncertaintyRadius = uncertaintyRadius;
+        //  Radius of uncertainty circle for location
     }   //  public void setUncertaintyRadius(float uncertaintyRadius)
 
     public void setDotRadius(float dotRadius)
     {
         this.dotRadius = dotRadius;
+        //  Radius of user dot
     }   //  public void setDotRadius(float dotRadius)
 
     public void setDotCenter(PointF dotCenter)
     {
         this.dotCenter = dotCenter;
+        //  Centre point of dot
     }   //  public void setDotCenter(PointF dotCenter)
 
     public void setHeading(double heading)
     {
         this.heading = heading;
+        //  Heading set
     }   //  public void setHeading(double heading)
 
     public BlueDotView(Context context)
@@ -64,39 +68,29 @@ public class BlueDotView extends SubsamplingScaleImageView
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(getResources().getColor(R.color.ia_blue));
-    }
+    }   //  private void initialise()
 
     @Override
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
-
         if (!isReady())
         {
             return;
         }   //  if (!isReady())
-
         if (dotCenter != null)
         {
-            // Update smooth estimate
-            smoothEstimate.update(
-                    dotCenter.x, dotCenter.y,
-                    (float)((heading)/180.0 * Math.PI), // Map degrees to radians
-                    uncertaintyRadius,
-                    System.currentTimeMillis());
-
+            // Update smooth estimate - set degrees to radians
+            smoothEstimate.update(dotCenter.x, dotCenter.y, (float)((heading)/180.0 * Math.PI), uncertaintyRadius, System.currentTimeMillis());
             PointF vPoint = sourceToViewCoord(smoothEstimate.getX(), smoothEstimate.getY());
-
             // Paint uncertainty circle
             float scaledUncertaintyRadius = getScale() * smoothEstimate.getRadius();
             paint.setAlpha(30);
             canvas.drawCircle(vPoint.x, vPoint.y, scaledUncertaintyRadius, paint);
-
             // Paint center point
             float scaledDotRadius = getScale() * dotRadius;
             paint.setAlpha(90);
             canvas.drawCircle(vPoint.x, vPoint.y, scaledDotRadius, paint);
-
             // Paint heading triangle if available
             if (heading != -1.0)
             {

@@ -13,11 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.glyndwrtimetablesatnav.R;
-import com.example.glyndwrtimetablesatnav.SdkExample;
+import com.example.glyndwrtimetablesatnav.MapTypes;
 import com.example.glyndwrtimetablesatnav.utils.ExampleUtils;
 
 
-@SdkExample(description = R.string.example_location_settings_description)
+@MapTypes(description = R.string.location_settings_description)
 public class LocationSettingsActivity extends AppCompatActivity
 {
     // This example demonstrates how to access some of the system settings that might affect overall

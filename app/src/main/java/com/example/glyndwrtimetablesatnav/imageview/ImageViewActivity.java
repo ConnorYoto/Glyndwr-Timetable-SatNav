@@ -1,5 +1,6 @@
 package com.example.glyndwrtimetablesatnav.imageview;
 
+import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -19,7 +20,7 @@ import com.indooratlas.android.sdk.IAOrientationListener;
 import com.indooratlas.android.sdk.IAOrientationRequest;
 import com.indooratlas.android.sdk.IARegion;
 import com.example.glyndwrtimetablesatnav.R;
-import com.example.glyndwrtimetablesatnav.SdkExample;
+import com.example.glyndwrtimetablesatnav.MapTypes;
 import com.example.glyndwrtimetablesatnav.utils.ExampleUtils;
 import com.indooratlas.android.sdk.resources.IAFloorPlan;
 import com.indooratlas.android.sdk.resources.IALatLng;
@@ -28,10 +29,10 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
-@SdkExample(description = R.string.example_imageview_description)
+@MapTypes(description = R.string.imageview_description)
 public class ImageViewActivity extends FragmentActivity
 {
-    private static final String TAG = "IndoorAtlasExample";
+    private static final String TAG = "IndoorAtlasMapType";
 
     /* used to decide when bitmap should be downscaled */
     private static final int MAX_DIMENSION = 2048;
@@ -47,10 +48,11 @@ public class ImageViewActivity extends FragmentActivity
     private Target mLoadTarget;
 
     private IALocationListener mLocationListener = new IALocationListenerSupport()
-    {
+    {   //  Location Updates Listener
+        @SuppressLint("LogNotTimber")
         @Override
         public void onLocationChanged(IALocation location)
-        {
+        {   //  Location Changed Updates
             Log.d(TAG, "location is: " + location.getLatitude() + "," + location.getLongitude());
             if (mImageView != null && mImageView.isReady())
             {
@@ -64,10 +66,10 @@ public class ImageViewActivity extends FragmentActivity
     };  //  private IALocationListener mLocationListener = new IALocationListenerSupport()
 
     private IAOrientationListener mOrientationListener = new IAOrientationListener()
-    {
+    {   //  Orientation Updates Listener
         @Override
         public void onHeadingChanged(long timestamp, double heading)
-        {
+        {   //  Heading Changed Updates
             if (mFloorPlan != null)
             {
                 mImageView.setHeading(heading - mFloorPlan.getBearing());
@@ -76,16 +78,16 @@ public class ImageViewActivity extends FragmentActivity
 
         @Override
         public void onOrientationChange(long l, double[] doubles)
-        {
+        {   //  Orientation Changed Updates
             // No-op
         }   //  public void onOrientationChange(long l, double[] doubles)
     };  //  private IAOrientationListener mOrientationListener = new IAOrientationListener()
 
     private IARegion.Listener mRegionListener = new IARegion.Listener()
-    {
+    {   //  Region Change Listener
         @Override
         public void onEnterRegion(IARegion region)
-        {
+        {   //  Region Updates on enter
             if (region.getType() == IARegion.TYPE_FLOOR_PLAN)
             {
                 String id = region.getId();
@@ -97,24 +99,22 @@ public class ImageViewActivity extends FragmentActivity
 
         @Override
         public void onExitRegion(IARegion region)
-        {
+        {   //  Region updates on exit
             // leaving a previously entered region
         }   //  public void onExitRegion(IARegion region)
     };  //  private IARegion.Listener mRegionListener = new IARegion.Listener()
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
-    {
+    {   //  OnCreate
         super.onCreate(savedInstanceState);
+        //  Interface
         setContentView(R.layout.activity_image_view);
         // prevent the screen going to sleep while app is on foreground
         findViewById(android.R.id.content).setKeepScreenOn(true);
-
         mImageView = findViewById(R.id.imageView);
-
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
         mIALocationManager = IALocationManager.create(this);
-
         // Setup long click listener for sharing traceId
         ExampleUtils.shareTraceId(findViewById(R.id.imageView), ImageViewActivity.this, mIALocationManager);
     }   //  protected void onCreate(Bundle savedInstanceState)
@@ -124,6 +124,7 @@ public class ImageViewActivity extends FragmentActivity
     {
         super.onDestroy();
         mIALocationManager.destroy();
+        //  Clean up after ourselves
     }   //  protected void onDestroy()
 
     @Override
@@ -131,17 +132,14 @@ public class ImageViewActivity extends FragmentActivity
     {
         super.onResume();
         // starts receiving location updates
-        ///mIALocationManager.requestLocationUpdates(IALocationRequest.create(), mLocationListener);
+        //  mIALocationManager.requestLocationUpdates(IALocationRequest.create(), mLocationListener);
         mIALocationManager.registerRegionListener(mRegionListener);
         IAOrientationRequest orientationRequest = new IAOrientationRequest(10f, 10f);
         mIALocationManager.registerOrientationListener(orientationRequest, mOrientationListener);
 
         IALocationRequest locReq = IALocationRequest.create();
-
-        // default mode
         locReq.setPriority(IALocationRequest.PRIORITY_HIGH_ACCURACY);
-
-        // --- start receiving location updates & monitor region changes
+        // Start receiving location updates & monitor region changes
         mIALocationManager.requestLocationUpdates(locReq, mLocationListener);
         mIALocationManager.registerRegionListener(mRegionListener);
     }   //  protected void onResume()
@@ -162,14 +160,13 @@ public class ImageViewActivity extends FragmentActivity
         mImageView.setImage(ImageSource.bitmap(bitmap));
     }   //  private void showFloorPlanImage(Bitmap bitmap)
 
-    //Download floor plan using Picasso library
+    //  Download floor plan using Picasso library
     private void fetchFloorPlanBitmap(final IAFloorPlan floorPlan)
     {
         mFloorPlan = floorPlan;
         final String url = floorPlan.getUrl();
         mLoadTarget = new Target()
         {
-
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from)
             {

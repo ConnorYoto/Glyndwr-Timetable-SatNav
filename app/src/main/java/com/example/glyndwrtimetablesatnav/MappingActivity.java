@@ -131,8 +131,8 @@ public class MappingActivity extends AppCompatActivity
     private void parseExample(ActivityInfo info, ArrayList<ExampleEntry> list) {
         try {
             Class<?> cls = Class.forName(info.name);
-            if (cls.isAnnotationPresent(SdkExample.class)) {
-                SdkExample annotation = (SdkExample) cls.getAnnotation(SdkExample.class);
+            if (cls.isAnnotationPresent(MapTypes.class)) {
+                MapTypes annotation = (MapTypes) cls.getAnnotation(MapTypes.class);
                 list.add(new ExampleEntry(new ComponentName(info.packageName, info.name),
                         annotation.title() != -1
                                 ? getString(annotation.title())

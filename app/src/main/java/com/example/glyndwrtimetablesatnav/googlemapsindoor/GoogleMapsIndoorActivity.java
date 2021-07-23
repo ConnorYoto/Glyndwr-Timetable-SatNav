@@ -22,12 +22,12 @@ import com.indooratlas.android.sdk.IALocationRequest;
 import com.indooratlas.android.sdk.IARegion;
 
 import com.example.glyndwrtimetablesatnav.R;
-import com.example.glyndwrtimetablesatnav.SdkExample;
+import com.example.glyndwrtimetablesatnav.MapTypes;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@SdkExample(description = R.string.example_googlemaps_indoor_description)
+@MapTypes(description = R.string.googlemaps_indoor_description)
 public class GoogleMapsIndoorActivity extends FragmentActivity implements IALocationListener, GoogleMap.OnIndoorStateChangeListener, OnMapReadyCallback
 {
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.

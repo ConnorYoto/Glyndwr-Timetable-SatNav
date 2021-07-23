@@ -12,10 +12,10 @@ import com.indooratlas.android.sdk.IALocationManager;
 import com.indooratlas.android.sdk.IALocationRequest;
 import com.indooratlas.android.sdk.IARegion;
 import com.example.glyndwrtimetablesatnav.R;
-import com.example.glyndwrtimetablesatnav.SdkExample;
+import com.example.glyndwrtimetablesatnav.MapTypes;
 
 //Demonstrates automatic region transitions and floor level certainty
-@SdkExample(description = R.string.example_regions_description)
+@MapTypes(description = R.string.regions_description)
 public class RegionsActivity extends FragmentActivity implements IALocationListener, IARegion.Listener
 {
     IALocationManager mManager;

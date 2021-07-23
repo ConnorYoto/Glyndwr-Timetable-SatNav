@@ -42,19 +42,6 @@
     <string name="location_permission_denied_message">No access to locations. Time to first fix may be severely delayed and some examples may not work!</string>
     <string name="permission_button_accept">Sure</string>
     <string name="permission_button_deny">Deny</string>
-    <!-- List Descriptions -->
-    <string name="example_wayfinding_description">Demonstrates usage of IndoorAtlas Wayfinding &amp; PoIs</string>
-    <string name="example_wayfinding_title">Wayfinding &amp; PoIs</string>
-    <string name="example_credentials_title">Set credentials</string>
-    <string name="example_credentials_description">Demonstrates setting credentials from code</string>
-    <string name="example_googlemaps_indoor_title">Google Indoor Maps</string>
-    <string name="example_googlemaps_indoor_description">Demonstrates using IndoorAtlas locations on Google Indoor Maps</string>
-    <string name="example_simple_title">Simple</string>
-    <string name="example_simple_description">Demonstrates basic functionality, shows events as text entries.</string>
-    <string name="example_imageview_title">ImageView</string>
-    <string name="example_imageview_description">Demonstrates showing locations on a floor plan displayed with ImageView.</string>
-    <string name="example_regions_description">Demonstrates automatic region transitions and vertical position information</string>
-    <string name="example_regions_title">Regions</string>
 
     <!-- Region Strings -->
     <string name="region_information">Region information</string>
@@ -74,8 +61,8 @@
     <string name="action_share">Share…</string>
 
     <!-- Radio and location settings example -->
-    <string name="example_location_settings_title">Device radio and location settings</string>
-    <string name="example_location_settings_description">Shows how to verify Bluetooth, WiFi and location settings</string>
+    <string name="location_settings_title">Device radio and location settings</string>
+    <string name="location_settings_description">Shows how to verify Bluetooth, WiFi and location settings</string>
     <string name="text_location_settings_example">Example on how to verify current WiFi, Bluetooth and location mode settings for optimal localization performance.</string>
     <string name="button_check_wifi_setting">Check WiFi background scanning</string>
     <string name="button_check_bt_setting">Check Bluetooth status</string>
@@ -87,4 +74,36 @@
     <string name="wifi_background_scanning_enabled">WiFi background scanning is enabled</string>
     <string name="wifi_background_scanning_denied">User denied WiFi background scanning</string>
     <string name="location_provider_available">Location provider enabled</string>
+
+    <!-- Mapping Title/Description List -->
+    <string name="credentials_title">Set credentials</string>
+    <string name="credentials_description">Demonstrates setting credentials from code</string>
+    <string name="imageview_title">ImageView</string>
+    <string name="imageview_description">Demonstrates showing locations on a floor plan displayed with ImageView.</string>
+    <string name="simple_title">Simple</string>
+    <string name="simple_description">Demonstrates basic functionality, shows events as text entries.</string>
+    <string name="googlemaps_overlay_title">Google Maps - Indoor-outdoor</string>
+    <string name="googlemaps_overlay_description">Demonstrates showing location over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS</string>
+    <string name="orientation_description">Demonstrates displaying the 3D orientation of the device. Panorama image credit: ESO (Very Large Telescope ready for action)</string>
+    <string name="orientation_title">Orientation</string>
+    <string name="googlemaps_overlay_geofencing_title">Geofences on Google Maps Overlay</string>
+    <string name="googlemaps_overlay_geofencing_description">Demonstrates showing location and setting Geofences over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS. Geofences work outdoors as well. </string>
+    <string name="foregroundservice_description">Demonstrates IndoorAtlas background positioning using a Foreground Service.</string>
+    <string name="foregroundservice_title">Background mode (Foreground Service)</string>
+    <string name="lockfloor_description">Demonstrates how locking positioning to specific floor or indoors is achieved.</string>
+    <string name="wayfinding_description">Demonstrates usage of IndoorAtlas Wayfinding &amp; PoIs</string>
+    <string name="wayfinding_title">Wayfinding &amp; PoIs</string>
+    <string name="googlemaps_indoor_title">Google Indoor Maps</string>
+    <string name="googlemaps_indoor_description">Demonstrates using IndoorAtlas locations on Google Indoor Maps</string>
+    <string name="regions_description">Demonstrates automatic region transitions and vertical position information</string>
+    <string name="regions_title">Regions</string>
+    <string name="lockfloor_title">Lock floor and Indoors </string>
+
+    <!-- Orientation example -->
+    <string name="text_bearing_initial">Bearing: no updates</string>
+    <string name="text_bearing">Bearing: %1$5.1f\u00b0</string>
+    <string name="text_heading_initial">Heading: no updates</string>
+    <string name="text_heading">Heading: %1$5.1f\u00b0</string>
+    <string name="text_orientation_initial">Orient.: no updates</string>
+    <string name="text_orientation">Yaw: %1$5.2f, Pitch: %2$5.2f, Roll: %3$5.2f</string>
 </resources>

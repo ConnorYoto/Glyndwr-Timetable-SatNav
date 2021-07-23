@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.glyndwrtimetablesatnav.wayfinding.WayfindingOverlayActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -172,18 +173,17 @@ public class TimetableContents extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                // Open Dialog
-                dialog2 = new Dialog(context);
-                dialog2.setContentView(R.layout.timetable_contents_dialog);
-                String[] Days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+                String[] Days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Please Select a Week and Load"};
                 ArrayList<String> dayList = new ArrayList<String>(Arrays.asList(Days));
                 String itemValue = (String)weekContentsList.getItemAtPosition(position);
                 if(dayList.contains(itemValue))
                 {
                     DisplayMessage("Not a Timetable");
                 }
-                else
-                {
+                else {
+                    // Open Dialog
+                    dialog2 = new Dialog(context);
+                    dialog2.setContentView(R.layout.timetable_contents_dialog);
                     // Dialog Interface
                     String[] DialogDetails = itemValue.split(", ");
                     final String EventID = DialogDetails[4];
@@ -200,7 +200,13 @@ public class TimetableContents extends AppCompatActivity
                     String E_Time = dialogContents[2].replace(", ", "");
                     String Module = dialogContents[3].replace(", ", "");
                     String EventCat = dialogContents[4].replace(", ", "");
-                    String Room = dialogContents[5].replace(", ", "");
+                    String Room;
+                    try {
+                        Room = dialogContents[5].replace(", ", "");
+                    } catch (Exception e) {
+                        Room = "";
+                        Log.w("Error w/ Room", e.getMessage());
+                    }
                     String DialogName = Module + " (" + EventID + ")";
                     String DialogInfo = "Day: " + Day + "\n Start Time: " + S_Time + "\n End Time: " + E_Time + "\n Event Category: " + EventCat + "\n Room: " + Room;
                     Log.w("Name + Info -", DialogName + DialogInfo);
@@ -213,19 +219,14 @@ public class TimetableContents extends AppCompatActivity
                     dialogDetails.setText(DialogInfo);
                     // Dialog Navigate Button
                     navButton = dialog2.findViewById(R.id.navButton);
-                    if(Room == "")
-                    {
-                         navButton.setText("Not Navigable");
-                    }
-                    else
-                    {
+                    if (Room == "") {
+                        navButton.setText("Not Navigable");
+                    } else {
                         final String POI = Room;
                         poiBundle.putString("POI", POI);
-                        navButton.setOnClickListener(new View.OnClickListener()
-                        {
+                        navButton.setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(View v)
-                            {
+                            public void onClick(View v) {
                                 // Open Wayfinding Activity + Pass Room
                                 Intent intent = new Intent(getBaseContext(), WayfindingOverlayActivity.class);
                                 intent.putExtras(poiBundle);
@@ -235,18 +236,16 @@ public class TimetableContents extends AppCompatActivity
                         });
                         // Open activity
                     }
+                    // Dialog Close Button
+                    Button backButton = dialog2.findViewById(R.id.closeContentsButton);
+                    backButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog2.dismiss();
+                        }
+                    });
+                    dialog2.show();
                 }
-                // Dialog Close Button
-                Button backButton = dialog2.findViewById(R.id.closeContentsButton);
-                backButton.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        dialog2.dismiss();
-                    }
-                });
-                dialog2.show();
             }
         }); // weekContentsList.setOnItemClickListener(new AdapterView.OnItemClickListener()
     }   // private void setUpControls()

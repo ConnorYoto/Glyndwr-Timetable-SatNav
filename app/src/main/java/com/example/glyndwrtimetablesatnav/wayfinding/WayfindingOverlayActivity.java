@@ -57,12 +57,10 @@ import java.util.List;
 public class WayfindingOverlayActivity extends FragmentActivity implements GoogleMap.OnMapClickListener, OnMapReadyCallback
 {
     private static final String TAG = "IndoorAtlasMapType";
-
     /* used to decide when bitmap should be downscaled */
     private static final int MAX_DIMENSION = 2048;
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-
     private Circle mCircle;
     private IARegion mOverlayFloorPlan = null;
     private GroundOverlay mGroundOverlay = null;
@@ -111,7 +109,6 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     };  //  private IAOrientationListener mOrientationListener = new IAOrientationListener()
 
     private int mFloor;
-    private String PoiName;
     private String externalPOI;
 
     private void showLocationCircle(LatLng center, double accuracyRadius)

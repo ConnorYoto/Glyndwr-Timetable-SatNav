@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".TimetableContents">
 
     <TextView
@@ -14,7 +15,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:text="@string/timetableIDText"
-        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/xmlTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +29,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginBottom="8dp"
         android:text="@string/xmlTextView"
-        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/weekTextView"
         app:layout_constraintEnd_toStartOf="@+id/xmlText"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +38,8 @@
 
     <Spinner
         android:id="@+id/weekSpinner"
+        android:textSize="24sp"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -50,13 +55,15 @@
         android:layout_height="0dp"
         android:layout_marginStart="18dp"
         android:text="@string/weekIDText"
-        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/weekSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/xmlTextView" />
 
     <TextView
         android:id="@+id/xmlText"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -73,6 +80,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -87,6 +95,7 @@
         android:background="@drawable/rounded_corners"
         android:text="@string/weekButton"
         android:textColor="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/contentsListView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/xmlText" />

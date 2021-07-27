@@ -10,21 +10,24 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="702dp" />
+        android:layout_height="685dp" />
 
     <LinearLayout
         android:id="@+id/mapLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_height="53dp"
+        android:layout_weight="0.3"
+        android:background="@color/colorPrimary"
         android:gravity="bottom|center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/POIName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="@string/POIText"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
     </LinearLayout>
 </LinearLayout>

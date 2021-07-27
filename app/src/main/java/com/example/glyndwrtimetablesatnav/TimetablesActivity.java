@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -94,7 +96,7 @@ public class TimetablesActivity extends AppCompatActivity
         listview = findViewById(R.id.timetableListView);
         list = new ArrayList<String>();
         // Construct the list
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        adapter = new ArrayAdapter(this, R.layout.simple_list_white, list);
         // Populate this ArrayList
         list.addAll(sqh.ListAllTimetables(db));
         // Link the ArrayAdapter to the list view

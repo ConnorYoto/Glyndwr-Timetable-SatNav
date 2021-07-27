@@ -1,12 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context=".simple.SimpleActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".simple.SimpleActivity">
 
     <LinearLayout
         android:id="@+id/buttons"
@@ -19,15 +20,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".3"
+            android:background="@drawable/rounded_corners"
             android:onClick="requestUpdates"
-            android:text="Request Updates"/>
+            android:text="Request Updates"
+            android:textSize="24sp" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".3"
+            android:background="@drawable/rounded_corners"
             android:onClick="removeUpdates"
-            android:text="Remove Updates"/>
+            android:text="Remove Updates"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -40,9 +45,10 @@
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
+            android:textColor="@android:color/white"
             android:layout_height="match_parent"
             android:gravity="top"
-            android:textAppearance="?android:textAppearanceSmall"/>
+            android:textAppearance="?android:textAppearanceSmall" />
     </ScrollView>
 
 </RelativeLayout>

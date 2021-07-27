@@ -2,20 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/image1"
-        android:layout_width="99dp"
-        android:layout_height="93dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/contentsDialogDetails"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:background="@android:color/transparent"
-        android:contentDescription="TODO"
         android:src="@mipmap/ic_launcher"
         app:srcCompat="@android:drawable/ic_dialog_info" />
 
@@ -25,54 +25,49 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/image1"
         android:layout_toRightOf="@+id/image1"
         android:paddingBottom="5dp"
         android:text="@string/EventName"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/navButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="5dp"
+        android:layout_below="@id/contentsDialogDetails"
         android:layout_marginBottom="5dp"
-        android:layout_toStartOf="@+id/closeContentsButton"
-        android:background="@drawable/rounded_corners_white"
+        android:layout_toLeftOf="@id/closeContentsButton"
+        android:background="@drawable/rounded_corners"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="@string/navButton" />
+        android:text="@string/navButton"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/closeContentsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@id/contentsDialogDetails"
         android:layout_alignParentRight="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/rounded_corners_white"
-        android:text="@string/closeTimetableDialog" />
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/rounded_corners"
+        android:text="@string/closeTimetableDialog"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/contentsDialogDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/navButton"
-        android:layout_below="@+id/contentsDialogTitle"
-        android:layout_alignBottom="@+id/navButton"
-        android:layout_marginStart="5dp"
+        android:layout_below="@id/contentsDialogTitle"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toEndOf="@+id/image1"
         android:text="@string/EventDetails"
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
 </RelativeLayout>

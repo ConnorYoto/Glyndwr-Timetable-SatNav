@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
-        android:text="@string/region_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
-        android:textStyle="bold"
-        />
+        android:text="@string/region_information"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/text_view_venue"
@@ -20,8 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="4dp"
-        android:textAlignment="center"
-        />
+        android:textColor="@color/white"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/text_view_venue_id"
@@ -29,15 +30,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
+        android:textColor="@color/white"
         android:textIsSelectable="true" />
-    
+
     <TextView
         android:id="@+id/text_view_floor_plan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="4dp"
-        />
+        android:textColor="@color/white"
+        android:layout_marginBottom="4dp" />
 
     <TextView
         android:id="@+id/text_view_floor_plan_id"
@@ -45,20 +47,23 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
+        android:textColor="@color/white"
         android:textIsSelectable="true" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="16dp"
-        android:background="?android:attr/listDivider"/>
+        android:textColor="@color/white"
+        android:background="?android:attr/listDivider" />
 
     <TextView
-        android:text="@string/floor_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"
+        android:text="@string/floor_level"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <TextView
@@ -67,12 +72,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"
+        android:textColor="@color/white"
         android:textSize="64sp" />
 
     <TextView
         android:id="@+id/text_view_floor_certainty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

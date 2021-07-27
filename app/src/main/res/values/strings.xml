@@ -19,7 +19,7 @@
     <string name="ready">Ready...</string>
     <string name="timetableTitle">Timetables</string>
     <string name="searchTerm">Search Timetables</string>
-    <string name="searchButton">Go</string>
+    <string name="searchButton">Search</string>
     <string name="closeTimetableDialog">Back</string>
     <string name="openTimetableContents">Open Timetable</string>
     <string name="timetableInfo">Timetable Info</string>
@@ -63,7 +63,7 @@
     <!-- Radio and location settings example -->
     <string name="location_settings_title">Device radio and location settings</string>
     <string name="location_settings_description">Shows how to verify Bluetooth, WiFi and location settings</string>
-    <string name="text_location_settings_example">Example on how to verify current WiFi, Bluetooth and location mode settings for optimal localization performance.</string>
+    <string name="text_location_settings_example">Here you can verify current WiFi, Bluetooth and location mode settings for optimal localization performance.</string>
     <string name="button_check_wifi_setting">Check WiFi background scanning</string>
     <string name="button_check_bt_setting">Check Bluetooth status</string>
     <string name="button_check_location_mode">Check location mode</string>

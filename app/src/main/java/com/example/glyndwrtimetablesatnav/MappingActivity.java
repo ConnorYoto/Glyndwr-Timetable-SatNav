@@ -1,5 +1,6 @@
 package com.example.glyndwrtimetablesatnav;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -8,12 +9,14 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,7 +34,8 @@ public class MappingActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_list);
         mAdapter = new ExamplesAdapter(this);
-        ListView listView = (ListView) findViewById(android.R.id.list);
+        ListView listView;
+        listView = (ListView) findViewById(R.id.MappingList);
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -87,16 +91,19 @@ public class MappingActivity extends AppCompatActivity
             return position;
         }
 
+        @SuppressLint("ResourceAsColor")
         @Override
         public View getView(int position, View convertView, ViewGroup parent)
         {
             ExampleEntry entry = mExamples.get(position);
-            if (convertView == null)
-            {
-                convertView = getLayoutInflater().inflate(android.R.layout.simple_list_item_2, parent, false);
+            if (convertView == null) {
+                convertView = getLayoutInflater().inflate(android.R.layout.simple_list_item_2,
+                        parent, false);
             }
             TextView labelText = (TextView) convertView.findViewById(android.R.id.text1);
+            labelText.setTextColor(Color.WHITE);
             TextView descriptionText = (TextView) convertView.findViewById(android.R.id.text2);
+            descriptionText.setTextColor(Color.WHITE);
             labelText.setText(entry.mLabel);
             descriptionText.setText(entry.mDescription);
             return convertView;

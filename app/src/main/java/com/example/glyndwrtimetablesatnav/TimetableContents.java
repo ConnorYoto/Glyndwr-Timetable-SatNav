@@ -2,13 +2,13 @@ package com.example.glyndwrtimetablesatnav;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
-
 import androidx.appcompat.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,16 +20,12 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.glyndwrtimetablesatnav.wayfinding.WayfindingOverlayActivity;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TimetableContents extends AppCompatActivity
-{
-    // Database Variables
+{   // Database Variables
     OpenDatabase sqh;
     SQLiteDatabase db;
     //  Interface
@@ -96,16 +92,15 @@ public class TimetableContents extends AppCompatActivity
         return true;
     }   // public boolean onCreateOptionsMenu(Menu menu)
 
+    @SuppressLint({"LogNotTimber", "SetTextI18n"})
     private void setUpControls(String t_ID, String XML_URL)
     {
         final String T_ID = t_ID;
         //  Prune duplicate weeks
         duplicateWeekList = new ArrayList<String>();
         duplicateWeekList.addAll(sqh.retrieveWeeks(db, T_ID));
-
         weekList = new ArrayList<String>();
         weekList.add("Select a week below");
-
         for(String element : duplicateWeekList)
         {
             if(!weekList.contains(element))
@@ -150,7 +145,7 @@ public class TimetableContents extends AppCompatActivity
         weekContentsList = findViewById(R.id.contentsListView);
         weekContents = new ArrayList<String>();
         // Construct the List
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, weekContents);
+        adapter = new ArrayAdapter(this, R.layout.simple_list_white, weekContents);
         // Show Empty on load
         weekContents.add("Please Select a Week and Load");
         // Link the ArrayAdapter to the list view
@@ -208,7 +203,8 @@ public class TimetableContents extends AppCompatActivity
                         Log.w("Error w/ Room", e.getMessage());
                     }
                     String DialogName = Module + " (" + EventID + ")";
-                    String DialogInfo = "Day: " + Day + "\n Start Time: " + S_Time + "\n End Time: " + E_Time + "\n Event Category: " + EventCat + "\n Room: " + Room;
+                    String DialogInfo = "Day: " + Day + "\n Start Time: " + S_Time + "\n End Time: " + E_Time +
+                            "\n Event Category: " + EventCat + "\n Room: " + Room;
                     Log.w("Name + Info -", DialogName + DialogInfo);
 
                     // Dialog Title
@@ -233,8 +229,7 @@ public class TimetableContents extends AppCompatActivity
                                 Log.w("Room = ", POI);
                                 startActivity(intent);
                             }
-                        });
-                        // Open activity
+                        }); // Open activity
                     }
                     // Dialog Close Button
                     Button backButton = dialog2.findViewById(R.id.closeContentsButton);
@@ -254,9 +249,7 @@ public class TimetableContents extends AppCompatActivity
     {
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_LONG;
-
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
     }
-
 }   // public class TimetableContents extends AppCompatActivity

@@ -22,7 +22,7 @@
             android:layout_weight=".3"
             android:background="@drawable/rounded_corners"
             android:onClick="requestUpdates"
-            android:text="Request Updates"
+            android:text="@string/requestUpdates"
             android:textSize="24sp" />
 
         <Button
@@ -31,7 +31,7 @@
             android:layout_weight=".3"
             android:background="@drawable/rounded_corners"
             android:onClick="removeUpdates"
-            android:text="Remove Updates"
+            android:text="@string/removeUpdates"
             android:textSize="24sp" />
 
     </LinearLayout>
@@ -46,7 +46,7 @@
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:textColor="@android:color/white"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="top"
             android:textAppearance="?android:textAppearanceSmall" />
     </ScrollView>

@@ -10,12 +10,13 @@
     <ImageView
         android:id="@+id/image1"
         android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_above="@id/contentsDialogDetails"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/dialogTimetableContentDesc"
         android:src="@mipmap/ic_launcher"
         app:srcCompat="@android:drawable/ic_dialog_info" />
 
@@ -24,13 +25,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/image1"
-        android:layout_toRightOf="@+id/image1"
         android:paddingBottom="5dp"
-        android:text="@string/EventName"
+        android:text="@string/eventName"
         android:textColor="@android:color/white"
         android:textSize="24sp" />
 
@@ -40,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/contentsDialogDetails"
         android:layout_marginBottom="5dp"
-        android:layout_toLeftOf="@id/closeContentsButton"
+        android:layout_toStartOf="@id/closeContentsButton"
         android:background="@drawable/rounded_corners"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
@@ -52,11 +51,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/contentsDialogDetails"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_corners"
-        android:text="@string/closeTimetableDialog"
+        android:text="@string/buttonClose"
         android:textSize="24sp" />
 
     <TextView
@@ -66,7 +65,7 @@
         android:layout_below="@id/contentsDialogTitle"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="0dp"
-        android:text="@string/EventDetails"
+        android:text="@string/eventDetails"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 

@@ -11,12 +11,12 @@
         android:id="@+id/scroller"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/buttons">
+        >
 
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="top"
             android:textColor="@color/white"
             android:textAppearance="?android:textAppearanceSmall" />

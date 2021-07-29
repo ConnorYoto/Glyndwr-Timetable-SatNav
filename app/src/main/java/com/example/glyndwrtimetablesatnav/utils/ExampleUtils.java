@@ -39,7 +39,7 @@ public class ExampleUtils
     public static void showInfo(Activity activity, String text)
     {
         final Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), text, Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.button_close, new View.OnClickListener()
+        snackbar.setAction(R.string.buttonClose, new View.OnClickListener()
         {
             @Override
             public void onClick(View view)

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
-        android:text="@string/region_information"
+        android:text="@string/regionInfo"
         android:textColor="@color/white"
         android:textStyle="bold" />
 
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"
-        android:text="@string/floor_level"
+        android:text="@string/floorLvl"
         android:textColor="@color/white"
         android:textStyle="bold" />
 

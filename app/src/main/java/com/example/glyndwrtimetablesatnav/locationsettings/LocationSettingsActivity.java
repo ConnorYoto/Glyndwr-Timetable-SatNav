@@ -17,7 +17,7 @@ import com.example.glyndwrtimetablesatnav.MapTypes;
 import com.example.glyndwrtimetablesatnav.utils.ExampleUtils;
 
 
-@MapTypes(description = R.string.location_settings_description)
+@MapTypes(description = R.string.locationSettingsDescription)
 public class LocationSettingsActivity extends AppCompatActivity
 {
     // This example demonstrates how to access some of the system settings that might affect overall
@@ -42,11 +42,11 @@ public class LocationSettingsActivity extends AppCompatActivity
             case WIFI_BACKGROUND_SCANNING_ENABLED_REQUEST_CODE:
                 if (resultCode == RESULT_OK)
                 {
-                    text = getString(R.string.wifi_background_scanning_enabled);
+                    text = getString(R.string.wifiBackgroundScanningEnabled);
                 }
                 else
                 {
-                    text = getString(R.string.wifi_background_scanning_denied);
+                    text = getString(R.string.wifiBackgroundScanningDenied);
                 }
                 ExampleUtils.showInfo(this, text);
                 break;
@@ -54,11 +54,11 @@ public class LocationSettingsActivity extends AppCompatActivity
             case BT_ENABLED_REQUEST_CODE:
                 if (resultCode == RESULT_OK)
                 {
-                    text = getString(R.string.bt_enabled);
+                    text = getString(R.string.btEnabled);
                 }
                 else
                 {
-                    text = getString(R.string.bt_denied);
+                    text = getString(R.string.btDenied);
                 }
                 ExampleUtils.showInfo(this, text);
                 break;
@@ -72,13 +72,13 @@ public class LocationSettingsActivity extends AppCompatActivity
         WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (manager == null)
         {
-            ExampleUtils.showInfo(this, getString(R.string.wifi_not_supported));
+            ExampleUtils.showInfo(this, getString(R.string.wifiNotSupported));
         }   //  if (manager == null)
         else
         {
             if (manager.isScanAlwaysAvailable())
             {
-                ExampleUtils.showInfo(this, getString(R.string.wifi_background_scanning_enabled));
+                ExampleUtils.showInfo(this, getString(R.string.wifiBackgroundScanningEnabled));
             }   //  if (manager.isScanAlwaysAvailable())
             else
             {
@@ -94,13 +94,13 @@ public class LocationSettingsActivity extends AppCompatActivity
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
         if (adapter == null)
         {
-            ExampleUtils.showInfo(this, getString(R.string.bt_not_supported));
+            ExampleUtils.showInfo(this, getString(R.string.btNotSupported));
         }   //  if (adapter == null)
         else
         {
             if (adapter.getState() == BluetoothAdapter.STATE_ON)
             {
-                ExampleUtils.showInfo(this, getString(R.string.bt_enabled));
+                ExampleUtils.showInfo(this, getString(R.string.btEnabled));
             }   //  if (adapter.getState() == BluetoothAdapter.STATE_ON)
             else
             {
@@ -122,7 +122,7 @@ public class LocationSettingsActivity extends AppCompatActivity
             final int mode = Settings.Secure.getInt(getContentResolver(), Settings.Secure.LOCATION_MODE);
             if (mode == Settings.Secure.LOCATION_MODE_HIGH_ACCURACY || mode == Settings.Secure.LOCATION_MODE_BATTERY_SAVING)
             {
-                ExampleUtils.showInfo(this, getString(R.string.location_provider_available));
+                ExampleUtils.showInfo(this, getString(R.string.locationProviderAvailable));
             }   //  if (mode == Settings.Secure.LOCATION_MODE_HIGH_ACCURACY || mode == Settings.Secure.LOCATION_MODE_BATTERY_SAVING)
             else
             {

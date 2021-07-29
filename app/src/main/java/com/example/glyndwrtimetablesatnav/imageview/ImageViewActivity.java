@@ -29,7 +29,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
-@MapTypes(description = R.string.imageview_description)
+@MapTypes(description = R.string.imageViewDescription)
 public class ImageViewActivity extends FragmentActivity
 {
     private static final String TAG = "IndoorAtlasMapType";

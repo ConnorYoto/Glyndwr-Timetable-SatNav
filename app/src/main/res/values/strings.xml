@@ -1,109 +1,113 @@
 <resources>
     <!-- Main Menu and Titles-->
-    <string name="app_name">Glyndwr Timetable SatNav</string>
-    <string name="mainMenuTitle">Glyndwr Timetable SatNav</string>
-    <string name="mapButtonText">Map</string>
-    <string name="timetableButtonText">Timetables</string>
-    <string name="appLogoDesc">Glyndwr Timetable SatNavs Logo</string>
-    <string name="surveyButtonText">User Survey</string>
+    <string name="appName">Glyndwr Timetable SatNav</string>
+    <string name="mapButton">Map</string>
+    <string name="timetableButton">Timetables</string>
+    <string name="surveyButton">User Survey</string>
     <string name="mappingButton">Mapping</string>
-    <string name="textLoading">Loading Timetables</string>
-    <string name="POIname">POI</string>
-    <string name="POIText">POI: Not Set</string>
+    <string name="appLogoDesc">Glyndwr Timetable SatNavs Logo</string>
     <!-- Timetables -->
-    <string name="web_scrape_test">WebScrapeTest</string>
-    <string name="page_title">JSoup Test Activity</string>
-    <string name="edit_hint">Type the url to scrape</string>
-    <string name="web_scrape">Web Scrape</string>
-    <string name="default_url">http://saturn.glyndwr.ac.uk/cisco/</string>
-    <string name="ready">Ready...</string>
     <string name="timetableTitle">Timetables</string>
     <string name="searchTerm">Search Timetables</string>
     <string name="searchButton">Search</string>
-    <string name="closeTimetableDialog">Back</string>
+    <!-- Timetables Dialog -->
+    <string name="buttonClose">Close</string>
     <string name="openTimetableContents">Open Timetable</string>
     <string name="timetableInfo">Timetable Info</string>
-    <string name="dialogTextView">Timetable Details</string>
+    <string name="dialogTimetables">Timetable Details</string>
+    <string name="dialogTimetableContentDesc">Dialog Info Box</string>
     <string name="timetableIDText">Timetable ID :</string>
+    <!-- Timetable Contents -->
     <string name="xmlTextView">URL :</string>
     <string name="weekIDText">Week No :</string>
     <string name="xmlTextURL">URL</string>
     <string name="weekButton">Load</string>
+    <!-- Timetable Contents Dialog -->
     <string name="navButton">Navigate</string>
-    <string name="EventName">Event Name</string>
-    <string name="EventDetails">Event Details</string>
-    <string name="button_close">Close</string>
-
-    <string name="configuration_incomplete_title">Configuration incomplete</string>
-    <string name="configuration_incomplete_message">API credentials needed, please see gradle.properties in project root level.</string>
-    <string name="button_ok">OK</string>
-    <string name="location_permission_request_title">Permission required</string>
-    <string name="location_permission_request_rationale">Access to coarse location is required for faster first fix and for some examples.</string>
-    <string name="location_permission_denied_message">No access to locations. Time to first fix may be severely delayed and some examples may not work!</string>
-    <string name="permission_button_accept">Sure</string>
-    <string name="permission_button_deny">Deny</string>
-
-    <!-- Region Strings -->
-    <string name="region_information">Region information</string>
-    <string name="venue_outside">Outside mapped area</string>
-    <string name="venue_inside">In venue</string>
-    <string name="floor_plan_outside">No floor plan</string>
-    <string name="floor_level">Floor level</string>
-    <string name="floor_certainty_percentage">Certainty: %.1f %%</string>
-
+    <string name="eventName">Event Name</string>
+    <string name="eventDetails">Event Details</string>
+    <!-- APIs and Permissions -->
+    <string name="configurationIncomplete">Configuration incomplete</string>
+    <string name="configurationIncompleteMsg">API credentials needed, please see gradle.properties in project root level.</string>
+    <string name="buttonOk">OK</string>
+    <string name="locationPermissionRequest">Permission required</string>
+    <string name="locationPermissionRequestRationale">Access to coarse location is required for faster first fix.</string>
+    <string name="locationPermissionDeniedMsg">No access to locations. Time to first fix may be severely delayed!</string>
+    <string name="permissionAcceptButton">Sure</string>
+    <string name="permissionDenyButton">Deny</string>
+    <!-- Extra Mapping Activities -->
+    <!-- Region Activity -->
+    <string name="regionsTitle">Regions</string>
+    <string name="regionsDescription">Automatic region transitions and vertical position information</string>
+    <string name="regionInfo">Region information</string>
+    <string name="venueOutside">Outside mapped area</string>
+    <string name="venueInside">In venue</string>
+    <string name="floorPlanOutside">No floor plan</string>
+    <string name="floorLvl">Floor level</string>
+    <string name="floorCertaintyPercentage">Certainty: %.1f %%</string>
     <!-- Simple Activity -->
-    <string name="button_cancel">Cancel</string>
-    <string name="fastest_interval_label">Fastest interval (milliseconds)</string>
-    <string name="shortest_displacement_label">Shortest displacement (meters)</string>
-    <string name="default_label">use default</string>
-    <string name="dialog_request_options_title">Location request options</string>
-    <string name="action_clear">Clear</string>
-    <string name="action_share">Share…</string>
-
-    <!-- Radio and location settings example -->
-    <string name="location_settings_title">Device radio and location settings</string>
-    <string name="location_settings_description">Shows how to verify Bluetooth, WiFi and location settings</string>
-    <string name="text_location_settings_example">Here you can verify current WiFi, Bluetooth and location mode settings for optimal localization performance.</string>
-    <string name="button_check_wifi_setting">Check WiFi background scanning</string>
-    <string name="button_check_bt_setting">Check Bluetooth status</string>
-    <string name="button_check_location_mode">Check location mode</string>
-    <string name="bt_not_supported">Bluetooth is not supported on this hardware platform</string>
-    <string name="bt_enabled">Bluetooth is enabled</string>
-    <string name="bt_denied">User denied use of bluetooth</string>
-    <string name="wifi_not_supported">WiFi is not supported on this hardware platform</string>
-    <string name="wifi_background_scanning_enabled">WiFi background scanning is enabled</string>
-    <string name="wifi_background_scanning_denied">User denied WiFi background scanning</string>
-    <string name="location_provider_available">Location provider enabled</string>
-
-    <!-- Mapping Title/Description List -->
-    <string name="credentials_title">Set credentials</string>
-    <string name="credentials_description">Demonstrates setting credentials from code</string>
-    <string name="imageview_title">ImageView</string>
-    <string name="imageview_description">Demonstrates showing locations on a floor plan displayed with ImageView.</string>
-    <string name="simple_title">Simple</string>
-    <string name="simple_description">Demonstrates basic functionality, shows events as text entries.</string>
-    <string name="googlemaps_overlay_title">Google Maps - Indoor-outdoor</string>
-    <string name="googlemaps_overlay_description">Demonstrates showing location over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS</string>
-    <string name="orientation_description">Demonstrates displaying the 3D orientation of the device. Panorama image credit: ESO (Very Large Telescope ready for action)</string>
-    <string name="orientation_title">Orientation</string>
-    <string name="googlemaps_overlay_geofencing_title">Geofences on Google Maps Overlay</string>
-    <string name="googlemaps_overlay_geofencing_description">Demonstrates showing location and setting Geofences over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS. Geofences work outdoors as well. </string>
-    <string name="foregroundservice_description">Demonstrates IndoorAtlas background positioning using a Foreground Service.</string>
-    <string name="foregroundservice_title">Background mode (Foreground Service)</string>
-    <string name="lockfloor_description">Demonstrates how locking positioning to specific floor or indoors is achieved.</string>
-    <string name="wayfinding_description">Demonstrates usage of IndoorAtlas Wayfinding &amp; PoIs</string>
-    <string name="wayfinding_title">Wayfinding &amp; PoIs</string>
-    <string name="googlemaps_indoor_title">Google Indoor Maps</string>
-    <string name="googlemaps_indoor_description">Demonstrates using IndoorAtlas locations on Google Indoor Maps</string>
-    <string name="regions_description">Demonstrates automatic region transitions and vertical position information</string>
-    <string name="regions_title">Regions</string>
-    <string name="lockfloor_title">Lock floor and Indoors </string>
-
-    <!-- Orientation example -->
-    <string name="text_bearing_initial">Bearing: no updates</string>
-    <string name="text_bearing">Bearing: %1$5.1f\u00b0</string>
-    <string name="text_heading_initial">Heading: no updates</string>
-    <string name="text_heading">Heading: %1$5.1f\u00b0</string>
-    <string name="text_orientation_initial">Orient.: no updates</string>
-    <string name="text_orientation">Yaw: %1$5.2f, Pitch: %2$5.2f, Roll: %3$5.2f</string>
+    <string name="simpleTitle">Simple</string>
+    <string name="simpleDescription">Demonstrates basic functionality, shows events as text entries.</string>
+    <string name="buttonCancel">Cancel</string>
+    <string name="fastestIntervalLabel">Fastest interval (milliseconds)</string>
+    <string name="shortestDisplacementLabel">Shortest displacement (meters)</string>
+    <string name="defaultLabel">use default</string>
+    <string name="dialogRequestOptionsTitle">Location request options</string>
+    <string name="actionClear">Clear</string>
+    <string name="actionShare">Share…</string>
+    <string name="requestUpdates">Request Updates</string>
+    <string name="removeUpdates">Remove Updates</string>
+    <!-- Radio and location settings Activity -->
+    <string name="locationSettingsTitle">Device radio and location settings</string>
+    <string name="locationSettingsDescription">Shows how to verify Bluetooth, WiFi and location settings</string>
+    <string name="textLocationSettings">Here you can verify current WiFi, Bluetooth and location mode settings for optimal localization performance.</string>
+    <string name="buttonCheckWiFiSetting">Check WiFi background scanning</string>
+    <string name="buttonCheckBTSetting">Check Bluetooth status</string>
+    <string name="buttonCheckLocationMode">Check location mode</string>
+    <string name="btNotSupported">Bluetooth is not supported on this Device</string>
+    <string name="btEnabled">Bluetooth is enabled</string>
+    <string name="btDenied">User denied use of bluetooth</string>
+    <string name="wifiNotSupported">WiFi is not supported on this Device</string>
+    <string name="wifiBackgroundScanningEnabled">WiFi background scanning is enabled</string>
+    <string name="wifiBackgroundScanningDenied">User denied WiFi background scanning</string>
+    <string name="locationProviderAvailable">Location provider enabled</string>
+    <!-- Credentials Activity -->
+    <string name="credentialsTitle">Set credentials</string>
+    <string name="credentialsDescription">Set credentials from code</string>
+    <!-- Basic ImageView Activity -->
+    <string name="imageViewTitle">ImageView</string>
+    <string name="imageViewDescription">Shows location on a floor plan displayed with ImageView.</string>
+    <!-- GoogleMaps Overlay Activity-->
+    <string name="googleMapsOverlayTitle">Google Maps - Indoor-outdoor</string>
+    <string name="googleMapsOverlayDescription">Shows location over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS</string>
+    <!-- GoogleMaps Indoor Activity -->
+    <string name="googleMapsIndoorTitle">Google Indoor Maps</string>
+    <string name="googleMapsIndoorDescription">Demonstrates using IndoorAtlas locations on Google Indoor Maps</string>
+    <!-- Orientation Activity -->
+    <string name="orientationTitle">Orientation</string>
+    <string name="orientationDescription">Displays the 3D orientation of the device</string>
+    <string name="textBearingInitial">Bearing: no updates</string>
+    <string name="textBearing">Bearing: %1$5.1f\u00b0</string>
+    <string name="textHeadingInitial">Heading: no updates</string>
+    <string name="textHeading">Heading: %1$5.1f\u00b0</string>
+    <string name="textOrientationInitial">Orient.: no updates</string>
+    <string name="textOrientation">Yaw: %1$5.2f, Pitch: %2$5.2f, Roll: %3$5.2f</string>
+    <!-- GoogleMaps Overlay Geofencing Activity -->
+    <string name="googleMapsOverlayGeofencingTitle">Geofences on Google Maps Overlay</string>
+    <string name="googleMapsOverlayGeofencingDescription">Shows location and setting Geofences over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS. </string>
+    <!-- Foreground Service -->
+    <string name="foregroundserviceTitle">Background mode (Foreground Service)</string>
+    <string name="foregroundserviceDescription">IndoorAtlas background positioning using a Foreground Service.</string>
+    <string name="stopForegroundService">Stop Foreground Service</string>
+    <string name="startForegroundService">Start Foreground Service</string>
+    <string name="mainScreen">Main Screen</string>
+    <!-- LockFloor Activity-->
+    <string name="lockfloorTitle">Lock floor and Indoors </string>
+    <string name="lockfloorDescription">Lock positioning to a specific floor or indoors is achieved.</string>
+    <string name="unlockIndoors">Unlock indoors</string>
+    <string name="lockFloor">Lock floor</string>
+    <!-- Wayfinding Activity -->
+    <string name="wayfindingDescription">IndoorAtlas Wayfinding &amp; PoIs</string>
+    <string name="wayfindingTitle">Wayfinding &amp; PoIs</string>
+    <string name="POIText">POI: Not Set</string>
 </resources>

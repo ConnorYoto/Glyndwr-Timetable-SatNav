@@ -238,9 +238,9 @@ public class MainActivity extends AppCompatActivity
             // IndoorAtlas SDK has minimum requirement of COARSE_LOCATION to enable WiFi scanning
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION))
             {
-                new AlertDialog.Builder(this).setTitle(R.string.location_permission_request_title)
-                        .setMessage(R.string.location_permission_request_rationale)
-                        .setPositiveButton(R.string.permission_button_accept, new DialogInterface.OnClickListener()
+                new AlertDialog.Builder(this).setTitle(R.string.locationPermissionRequest)
+                        .setMessage(R.string.locationPermissionRequestRationale)
+                        .setPositiveButton(R.string.permissionAcceptButton, new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which)
@@ -252,13 +252,13 @@ public class MainActivity extends AppCompatActivity
                                         REQUEST_CODE_ACCESS_COARSE_LOCATION);
                             }   //  public void onClick(DialogInterface dialog, int which)
                         })  //  .setPositiveButton(R.string.permission_button_accept, new DialogInterface.OnClickListener()
-                        .setNegativeButton(R.string.permission_button_deny, new DialogInterface.OnClickListener()
+                        .setNegativeButton(R.string.permissionDenyButton, new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
                                 Toast.makeText(MainActivity.this,
-                                        R.string.location_permission_denied_message,
+                                        R.string.locationPermissionDeniedMsg,
                                         Toast.LENGTH_LONG).show();
                             }   //  public void onClick(DialogInterface dialog, int which)
                         })  //  .setNegativeButton(R.string.permission_button_deny, new DialogInterface.OnClickListener()
@@ -280,8 +280,7 @@ public class MainActivity extends AppCompatActivity
         {
             if (grantResults.length == 0 || grantResults[0] == PackageManager.PERMISSION_DENIED)
             {
-                Toast.makeText(this, R.string.location_permission_denied_message,
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.locationPermissionDeniedMsg, Toast.LENGTH_LONG).show();
             }
         }
     }

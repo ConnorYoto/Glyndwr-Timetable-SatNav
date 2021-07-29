@@ -15,8 +15,7 @@
     <LinearLayout
         android:id="@+id/mapLayout"
         android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_weight="0.3"
+        android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:gravity="bottom|center"
         android:orientation="vertical">

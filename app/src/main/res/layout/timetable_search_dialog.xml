@@ -11,9 +11,10 @@
     <ImageView
         android:id="@+id/image1"
         android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/dialogTimetableContentDesc"
         android:paddingBottom="5dp"
         android:src="@mipmap/ic_launcher"
         app:srcCompat="@android:drawable/ic_dialog_info" />
@@ -23,10 +24,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@id/image1"
         android:layout_toEndOf="@+id/image1"
-        android:layout_toRightOf="@+id/image1"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:paddingBottom="5dp"
         android:text="@string/timetableInfo"
         android:textColor="@android:color/white"
@@ -49,11 +49,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/searchDialogDetails"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:background="@drawable/rounded_corners"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="@string/closeTimetableDialog"
+        android:text="@string/buttonClose"
         android:textSize="24sp" />
 
     <TextView
@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/searchDialogTitle"
-        android:text="@string/dialogTextView"
+        android:text="@string/dialogTimetables"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 

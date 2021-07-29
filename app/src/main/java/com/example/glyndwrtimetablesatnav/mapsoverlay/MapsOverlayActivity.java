@@ -45,7 +45,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
-@MapTypes(description = R.string.googlemaps_overlay_description)
+@MapTypes(description = R.string.googleMapsOverlayDescription)
 public class MapsOverlayActivity extends FragmentActivity implements LocationListener, OnMapReadyCallback
 {
     private static final String TAG = "IndoorAtlasMapType";
@@ -279,7 +279,7 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
     private void showInfo(String text)
     {
         final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.button_close, new View.OnClickListener()
+        snackbar.setAction(R.string.buttonClose, new View.OnClickListener()
         {
             @Override
             public void onClick(View view)

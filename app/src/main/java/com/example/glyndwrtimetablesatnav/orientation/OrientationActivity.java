@@ -14,7 +14,7 @@ import com.indooratlas.android.sdk.IAOrientationRequest;
 import com.example.glyndwrtimetablesatnav.R;
 import com.example.glyndwrtimetablesatnav.MapTypes;
 
-@MapTypes(description = R.string.orientation_description)
+@MapTypes(description = R.string.orientationDescription)
 public class OrientationActivity extends AppCompatActivity implements IALocationListener, IAOrientationListener
 {
     GLSurfaceView mGlView;
@@ -71,7 +71,7 @@ public class OrientationActivity extends AppCompatActivity implements IALocation
     @Override
     public void onLocationChanged(IALocation iaLocation)
     {
-        mTextBearing.setText(getString(R.string.text_bearing, iaLocation.getBearing()));
+        mTextBearing.setText(getString(R.string.textBearing, iaLocation.getBearing()));
     }   //  public void onLocationChanged(IALocation iaLocation)
 
     @Override
@@ -81,7 +81,7 @@ public class OrientationActivity extends AppCompatActivity implements IALocation
     @Override
     public void onHeadingChanged(long timestamp, double heading)
     {
-        mTextHeading.setText(getString(R.string.text_heading, heading));
+        mTextHeading.setText(getString(R.string.textHeading, heading));
     }   //  public void onHeadingChanged(long timestamp, double heading)
 
     @Override
@@ -96,7 +96,7 @@ public class OrientationActivity extends AppCompatActivity implements IALocation
         final double roll =  Math.asin(2.0 * (qw * qy - qz * qx));
         final double yaw = -Math.atan2(2.0 * (qw * qz + qx * qy), 1.0 - 2.0 * (qy * qy + qz * qz));
 
-        mTextOrientation.setText(getString(R.string.text_orientation, Math.toDegrees(yaw), Math.toDegrees(pitch), Math.toDegrees(roll)));
+        mTextOrientation.setText(getString(R.string.textOrientation, Math.toDegrees(yaw), Math.toDegrees(pitch), Math.toDegrees(roll)));
         mRenderer.setOrientation(orientation);
         mGlView.requestRender();
     }   //  public void onOrientationChange(long timestamp, double[] orientation)

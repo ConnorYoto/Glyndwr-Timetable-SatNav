@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.glyndwrtimetablesatnav">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -15,10 +16,11 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/appName"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -46,47 +48,47 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".wayfinding.WayfindingOverlayActivity"
-            android:label="@string/wayfinding_title"
+            android:label="@string/wayfindingTitle"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".imageview.ImageViewActivity"
-            android:label="@string/imageview_title"
+            android:label="@string/imageViewTitle"
             android:screenOrientation="portrait" />
         <activity
             android:name=".simple.SimpleActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/simple_title" />
+            android:label="@string/simpleTitle" />
         <activity
             android:name=".mapsoverlay.MapsOverlayActivity"
-            android:label="@string/googlemaps_overlay_title"
+            android:label="@string/googleMapsOverlayTitle"
             android:screenOrientation="portrait" />
         <activity
             android:name=".credentials.CredentialsFromCodeActivity"
-            android:label="@string/credentials_title" />
+            android:label="@string/credentialsTitle" />
         <activity
             android:name=".orientation.OrientationActivity"
-            android:label="@string/orientation_title"
+            android:label="@string/orientationTitle"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".geofence.GeofenceMapsOverlayActivity"
-            android:label="@string/googlemaps_overlay_geofencing_title"
+            android:label="@string/googleMapsOverlayGeofencingTitle"
             android:screenOrientation="portrait" />
         <activity
             android:name=".regions.RegionsActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/regions_title" />
+            android:label="@string/regionsTitle" />
         <activity
             android:name=".locationsettings.LocationSettingsActivity"
-            android:label="@string/location_settings_title" />
+            android:label="@string/locationSettingsTitle" />
 
         <activity
             android:name=".googlemapsindoor.GoogleMapsIndoorActivity"
-            android:label="@string/googlemaps_indoor_title"
+            android:label="@string/googleMapsIndoorTitle"
             android:screenOrientation="portrait" />
         <activity
             android:name=".lockfloor.LockFloorActivity"
-            android:label="@string/lockfloor_title"
+            android:label="@string/lockfloorTitle"
             android:screenOrientation="portrait" />
 
         <service

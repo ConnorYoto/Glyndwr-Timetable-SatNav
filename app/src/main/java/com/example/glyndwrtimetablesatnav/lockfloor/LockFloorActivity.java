@@ -26,7 +26,7 @@ import com.example.glyndwrtimetablesatnav.utils.ExampleUtils;
 
 import java.util.Locale;
 
-@MapTypes(description = R.string.lockfloor_description)
+@MapTypes(description = R.string.lockfloorDescription)
 public class LockFloorActivity extends AppCompatActivity implements IALocationListener, IARegion.Listener
 {   //  Simple example that demonstrates basic interaction with {@link IALocationManager}.
     static final String FASTEST_INTERVAL = "fastestInterval";

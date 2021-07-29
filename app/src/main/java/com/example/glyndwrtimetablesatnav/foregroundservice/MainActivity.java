@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.example.glyndwrtimetablesatnav.R;
 import com.example.glyndwrtimetablesatnav.MapTypes;
 
-@MapTypes(description = R.string.foregroundservice_description)
+@MapTypes(description = R.string.foregroundserviceDescription)
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
     @Override

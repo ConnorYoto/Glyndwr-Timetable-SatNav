@@ -27,7 +27,7 @@ import com.example.glyndwrtimetablesatnav.MapTypes;
 import java.util.HashMap;
 import java.util.Map;
 
-@MapTypes(description = R.string.googlemaps_indoor_description)
+@MapTypes(description = R.string.googleMapsIndoorDescription)
 public class GoogleMapsIndoorActivity extends FragmentActivity implements IALocationListener, GoogleMap.OnIndoorStateChangeListener, OnMapReadyCallback
 {
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.

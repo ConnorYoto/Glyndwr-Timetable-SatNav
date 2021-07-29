@@ -49,9 +49,9 @@ public class MappingActivity extends AppCompatActivity
         if (!isSdkConfigured())
         {
             new AlertDialog.Builder(this)
-                    .setTitle(R.string.configuration_incomplete_title)
-                    .setMessage(R.string.configuration_incomplete_message)
-                    .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener()
+                    .setTitle(R.string.configurationIncomplete)
+                    .setMessage(R.string.configurationIncompleteMsg)
+                    .setPositiveButton(R.string.buttonOk, new DialogInterface.OnClickListener()
                     {
                         @Override
                         public void onClick(DialogInterface dialog, int which)

@@ -8,28 +8,30 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fastest_interval_label" />
+        android:text="@string/fastestIntervalLabel" />
 
     <EditText
+        android:id="@+id/edit_text_interval"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:ems="10"
-        android:hint="@string/default_label"
-        android:id="@+id/edit_text_interval" />
+        android:hint="@string/defaultLabel"
+        android:inputType="number"
+        android:importantForAutofill="no" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/shortest_displacement_label" />
+        android:text="@string/shortestDisplacementLabel" />
 
     <EditText
+        android:id="@+id/edit_text_displacement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
         android:ems="10"
-        android:hint="@string/default_label"
-        android:id="@+id/edit_text_displacement" />
+        android:hint="@string/defaultLabel"
+        android:inputType="numberDecimal"
+        android:importantForAutofill="no" />
 
 
 </LinearLayout>

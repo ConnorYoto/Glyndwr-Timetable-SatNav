@@ -53,7 +53,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-@MapTypes(description = R.string.googlemaps_overlay_geofencing_description)
+@MapTypes(description = R.string.googleMapsOverlayGeofencingDescription)
 public class GeofenceMapsOverlayActivity extends FragmentActivity implements LocationListener, OnMapReadyCallback, IAGeofenceListener
 {
     private static final String TAG = "IndoorAtlasMapType";
@@ -415,7 +415,7 @@ public class GeofenceMapsOverlayActivity extends FragmentActivity implements Loc
     private void showInfo(String text)
     {
         final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.button_close, new View.OnClickListener()
+        snackbar.setAction(R.string.buttonClose, new View.OnClickListener()
         {
             @Override
             public void onClick(View view)

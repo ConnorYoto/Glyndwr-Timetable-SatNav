@@ -25,7 +25,7 @@ import com.indooratlas.android.sdk.IARegion;
 
 import java.util.Locale;
 
-@MapTypes(description = R.string.simple_description)
+@MapTypes(description = R.string.simpleDescription)
 public class SimpleActivity extends AppCompatActivity implements IALocationListener, IARegion.Listener
 {
     static final String FASTEST_INTERVAL = "fastestInterval";
@@ -188,8 +188,8 @@ public class SimpleActivity extends AppCompatActivity implements IALocationListe
             shortestDisplacement.setText(String.valueOf(mShortestDisplacement));
         }
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.dialog_request_options_title).setView(dialogLayout).setCancelable(true)
-                .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener()
+                builder.setTitle(R.string.dialogRequestOptionsTitle).setView(dialogLayout).setCancelable(true)
+                .setPositiveButton(R.string.buttonOk, new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which)
@@ -221,7 +221,7 @@ public class SimpleActivity extends AppCompatActivity implements IALocationListe
                         log("requestLocationUpdates");
                     }
                 })
-                .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener()
+                .setNegativeButton(R.string.buttonCancel, new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which)

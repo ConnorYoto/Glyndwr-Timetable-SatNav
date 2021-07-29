@@ -13,7 +13,7 @@ import com.example.glyndwrtimetablesatnav.R;
 
 import java.util.Locale;
 
-@MapTypes(description = R.string.credentials_description)
+@MapTypes(description = R.string.credentialsDescription)
 public class CredentialsFromCodeActivity extends AppCompatActivity implements IALocationListener {
 
     private IALocationManager mLocationManager;

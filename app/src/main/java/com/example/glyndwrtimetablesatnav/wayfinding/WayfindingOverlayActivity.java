@@ -52,8 +52,9 @@ import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-@MapTypes(description = R.string.wayfinding_description)
+@MapTypes(description = R.string.wayfindingDescription)
 public class WayfindingOverlayActivity extends FragmentActivity implements GoogleMap.OnMapClickListener, OnMapReadyCallback
 {
     private static final String TAG = "IndoorAtlasMapType";
@@ -109,7 +110,6 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     };  //  private IAOrientationListener mOrientationListener = new IAOrientationListener()
 
     private int mFloor;
-    private String externalPOI;
 
     private void showLocationCircle(LatLng center, double accuracyRadius)
     {
@@ -213,6 +213,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         }   //  public void onExitRegion(IARegion region)
     };  //  private IARegion.Listener mRegionListener = new IARegion.Listener()
 
+    @SuppressLint({"LogNotTimber", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -229,14 +230,17 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         //  Accepting Variables
         try
         {
-            externalPOI = POIS.getString("POI");
+            String externalPOI = null;
+            if (POIS != null) {
+                externalPOI = POIS.getString("POI");
+            }
             Log.w("POI = ", externalPOI);
             TextView POIName = findViewById(R.id.POIName);
             POIName.setText("POI: " + externalPOI) ;
         }
         catch(Exception e)
         {
-            Log.w("Error: ", e.getMessage());
+            Log.w("Error: ", Objects.requireNonNull(e.getMessage()));
         }
     }   //  protected void onCreate(Bundle savedInstanceState)
 
@@ -417,7 +421,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     private void showInfo(String text)
     {
         final Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.button_close, new View.OnClickListener()
+        snackbar.setAction(R.string.buttonClose, new View.OnClickListener()
         {
             @Override
             public void onClick(View view)

@@ -15,7 +15,7 @@ import com.example.glyndwrtimetablesatnav.R;
 import com.example.glyndwrtimetablesatnav.MapTypes;
 
 //Demonstrates automatic region transitions and floor level certainty
-@MapTypes(description = R.string.regions_description)
+@MapTypes(description = R.string.regionsDescription)
 public class RegionsActivity extends FragmentActivity implements IALocationListener, IARegion.Listener
 {
     IALocationManager mManager;
@@ -102,7 +102,7 @@ public class RegionsActivity extends FragmentActivity implements IALocationListe
 
     void updateUi()
     {
-        String venue = getString(R.string.venue_outside);
+        String venue = getString(R.string.venueOutside);
         String venueId = "";
         String floorPlan = "";
         String floorPlanId = "";
@@ -110,7 +110,7 @@ public class RegionsActivity extends FragmentActivity implements IALocationListe
         String certainty = "";
         if (mCurrentVenue != null)
         {
-            venue = getString(R.string.venue_inside);
+            venue = getString(R.string.venueInside);
             venueId = mCurrentVenue.getId();
             if (mCurrentFloorPlan != null)
             {
@@ -119,7 +119,7 @@ public class RegionsActivity extends FragmentActivity implements IALocationListe
             }   //  if (mCurrentFloorPlan != null)
             else
             {
-                floorPlan = getString(R.string.floor_plan_outside);
+                floorPlan = getString(R.string.floorPlanOutside);
             }   //   else
         }   //  if (mCurrentVenue != null)
         if (mCurrentFloorLevel != null)
@@ -128,7 +128,7 @@ public class RegionsActivity extends FragmentActivity implements IALocationListe
         }   //  if (mCurrentFloorLevel != null)
         if (mCurrentCertainty != null)
         {
-            certainty = getString(R.string.floor_certainty_percentage, mCurrentCertainty * 100.0f);
+            certainty = getString(R.string.floorCertaintyPercentage, mCurrentCertainty * 100.0f);
         }   //  if (mCurrentCertainty != null)
         setText(mUiVenue, venue, true);
         setText(mUiVenueId, venueId, true);

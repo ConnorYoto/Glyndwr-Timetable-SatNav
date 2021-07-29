@@ -160,8 +160,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         {
             Log.d(TAG, "new location received with coordinates: " + location.getLatitude() + "," + location.getLongitude());
             if (mMap == null)
-            {
-                // location received before map is initialized, ignoring update here
+            {   // location received before map is initialized, ignoring update here
                 return;
             }   // if (mMap == null)
             final LatLng center = new LatLng(location.getLatitude(), location.getLongitude());
@@ -291,15 +290,14 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
         mMap = googleMap;
         if (!MainActivity.checkLocationPermissions(this))
         {
-            finish(); // Handle permission asking in MapActivity
+            finish(); // Handle permission asking in MainActivity
             return;
-        }   //  if (!MapActivity.checkLocationPermissions(this))
+        }
         // do not show Google's outdoor location
         mMap.setMyLocationEnabled(false);
         mMap.setOnMapClickListener(this);
-        // disable various Google maps UI elements that do not work indoors
+        // disable various Google maps UI elements that does not work indoors
         mMap.getUiSettings().setMapToolbarEnabled(false);
-        // mMap.addMarker() ------------------------------------------------
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
         {
             @Override
@@ -315,7 +313,7 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
                 setWayfindingTarget(marker.getPosition(), false);
                 // do not consume the event so that the popup with marker name is displayed
                 return false;
-            }   //  public boolean onMarkerClick(Marker marker)
+            }
         }); //  mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
     }   //  public void onMapReady(GoogleMap googleMap)
 
@@ -372,10 +370,8 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
             Log.e(TAG, "null floor plan in fetchFloorPlanBitmap");
             return;
         }   //  if (floorPlan == null)
-
-        final String url = floorPlan.getUrl();
-        Log.d(TAG, "loading floor plan bitmap from "+url);
-
+        final String URL = floorPlan.getUrl();
+        Log.d(TAG, "loading floor plan bitmap from " + URL);
         mLoadTarget = new Target()
         {
             @Override
@@ -388,13 +384,11 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
                     setupGroundOverlay(floorPlan, bitmap);
                 }   //  if (mOverlayFloorPlan != null && floorPlan.getId().equals(mOverlayFloorPlan.getId()))
             }   //  public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from)
-
             @Override
             public void onPrepareLoad(Drawable placeHolderDrawable)
             {
-                // N/A
-            }   //  public void onPrepareLoad(Drawable placeHolderDrawable)
 
+            }   //  public void onPrepareLoad(Drawable placeHolderDrawable)
             @Override
             public void onBitmapFailed(Drawable placeHolderDrawable)
             {
@@ -402,11 +396,9 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
                 mOverlayFloorPlan = null;
             }   //  public void onBitmapFailed(Drawable placeHolderDrawable)
         };  //  mLoadTarget = new Target()
-        RequestCreator request = Picasso.with(this).load(url);
-
+        RequestCreator request = Picasso.with(this).load(URL);
         final int bitmapWidth = floorPlan.getBitmapWidth();
         final int bitmapHeight = floorPlan.getBitmapHeight();
-
         if (bitmapHeight > MAX_DIMENSION)
         {
             request.resize(0, MAX_DIMENSION);
@@ -498,12 +490,10 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
     private void updateRouteVisualization()
     {
         clearRouteVisualization();
-
         if (mCurrentRoute == null)
         {
             return;
         }   //  if (mCurrentRoute == null)
-
         for (IARoute.Leg leg : mCurrentRoute.getLegs())
         {
             if (leg.getEdgeIndex() == null)
@@ -511,18 +501,14 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
                 // Legs without an edge index are, in practice, the last and first legs of the
                 // route. They connect the destination or current location to the routing graph.
                 // All other legs travel along the edges of the routing graph.
-
                 // Omitting these "artificial edges" in visualization can improve the aesthetics
                 // of the route. Alternatively, they could be visualized with dashed lines.
                 continue;
             }   //  if (leg.getEdgeIndex() == null)
-
             PolylineOptions opt = new PolylineOptions();
             opt.add(new LatLng(leg.getBegin().getLatitude(), leg.getBegin().getLongitude()));
             opt.add(new LatLng(leg.getEnd().getLatitude(), leg.getEnd().getLongitude()));
-
-            // Here wayfinding path in different floor than current location is visualized in
-            // a semi-transparent color
+            // Here wayfinding path in different floor than current location is visualized in a semi-transparent color
             if (leg.getBegin().getFloor() == mFloor && leg.getEnd().getFloor() == mFloor)
             {
                 opt.color(0xFF0000FF);

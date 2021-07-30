@@ -71,7 +71,7 @@ public class GoogleMapsIndoorActivity extends FragmentActivity implements IALoca
             }   //  for (IndoorLevel level : building.getLevels())
         }   //  void setBuilding(IndoorBuilding building)
 
-        /** Set currrent IndoorAtlas location */
+        /** Set current IndoorAtlas location */
         void setIALocation(IALocation location)
         {
             mLastLocation = location;

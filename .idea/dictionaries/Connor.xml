@@ -1,24 +1,53 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Connor">
     <words>
+      <w>bluedot</w>
+      <w>cdlb</w>
+      <w>coord</w>
       <w>coords</w>
+      <w>coslat</w>
+      <w>coslon</w>
+      <w>endtime</w>
+      <w>eventname</w>
+      <w>fdff</w>
       <w>filepaths</w>
       <w>fileprovider</w>
       <w>foregroundservice</w>
       <w>geofence</w>
       <w>geofences</w>
       <w>geofencing</w>
+      <w>gles</w>
+      <w>glyndwr</w>
+      <w>glyndwrsatmap</w>
       <w>glyndwrtimetablesatnav</w>
       <w>googlemaps</w>
       <w>googlemapsindoor</w>
+      <w>iapoi</w>
       <w>imageview</w>
+      <w>indooratlas</w>
+      <w>listview</w>
       <w>locationsettings</w>
       <w>lockfloor</w>
+      <w>mapsoverlay</w>
+      <w>mediump</w>
+      <w>morrissey</w>
+      <w>mult</w>
+      <w>navs</w>
+      <w>noninfringement</w>
+      <w>oxsl</w>
       <w>pois</w>
+      <w>polylines</w>
+      <w>prettyweeks</w>
       <w>prog</w>
       <w>quat</w>
+      <w>sinlat</w>
+      <w>sinlon</w>
+      <w>snackbar</w>
       <w>startforeground</w>
+      <w>starttime</w>
       <w>stopforeground</w>
+      <w>subsampling</w>
+      <w>timesort</w>
       <w>wayfinding</w>
     </words>
   </dictionary>

@@ -120,7 +120,7 @@ public class MapsOverlayActivity extends FragmentActivity implements LocationLis
                     mGroundOverlay.setTransparency(0.0f);
                 }
                 mShowIndoorLocation = true;
-                showInfo("Showing IndoorAtlas SDK\'s location output");
+                showInfo("Showing IndoorAtlas SDK's location output");
             }
             showInfo("Enter " + (region.getType() == IARegion.TYPE_VENUE ? "VENUE " : "FLOOR_PLAN ") + region.getId());
         }   //  public void onEnterRegion(IARegion region)

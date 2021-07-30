@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -32,6 +33,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity
         setUpDatabase();
         // Initialise Database
         InitDatabase();
-        // Jsoup Web-Scraping
+        // JSoup Web-Scraping
         scrapeTimetables();
         // Toast DisplayMessage
         DisplayMessage("Timetables Loaded");
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity
         Log.w("TIMETABLE_RECORDS_WIPED","Timetable Records table wiped for fresh web scrape"); // Log Message to Logcat - Timetable Wiped
         new Thread(new Runnable()
         {
+            @SuppressLint("LogNotTimber")
             @Override
             public void run()
             {
@@ -92,24 +95,20 @@ public class MainActivity extends AppCompatActivity
                     for (Element resource : resources)
                     {
                         String check = resource.attr("id");
-                        if (check.equals(""))
+                        if (!check.equals(""))
                         {
-                            continue;
+                            String Name = resource.select("name").text().replace(",", "").replace("'", "");
+                            String Type = resource.attr("type").replace(",", "");
+                            String XML_URL = resource.select("link.pdf").attr("href").replace(".pdf", ".xml");
+                            sqh.addTimetableRecord(db, Name, Type, XML_URL);
+                            //Log.w("Record:","Name = " + Name + ", Type = " + Type + ", URL = " + XML_URL);
                         }
-                        else
-                            {
-                                String Name = resource.select("name").text().replace(",", "").replace("'", "");
-                                String Type = resource.attr("type").replace(",", "");
-                                String XML_URL = resource.select("link.pdf").attr("href").replace(".pdf", ".xml");
-                                sqh.addTimetableRecord(db, Name, Type, XML_URL);
-                                //Log.w("Record:","Name = " + Name + ", Type = " + Type + ", URL = " + XML_URL);
-                            }
                     }
                     Log.w("SCRAPE SUCCESSFUL", "Timetable Records have been scraped"); // Log Message to Logcat - Web Scrape Successful
                 }
                 catch (IOException e)
                 {
-                    Log.w("SCRAPING ERROR:", e.getMessage()); // Log Message to Logcat - Scraping error + exception message
+                    Log.w("SCRAPING ERROR:", Objects.requireNonNull(e.getMessage())); // Log Message to Logcat - Scraping error + exception message
                 }
             }
         }).start();
@@ -137,6 +136,7 @@ public class MainActivity extends AppCompatActivity
         }
     } //public void setUpDatabase()
 
+    @SuppressLint("LogNotTimber")
     public void CopyDataBaseFromAsset() throws IOException
     {
         // Get the SQLite database in the assets folder

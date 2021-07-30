@@ -35,7 +35,7 @@ public class MappingActivity extends AppCompatActivity
         setContentView(R.layout.activity_map_list);
         mAdapter = new ExamplesAdapter(this);
         ListView listView;
-        listView = (ListView) findViewById(R.id.MappingList);
+        listView = findViewById(R.id.MappingList);
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -100,9 +100,9 @@ public class MappingActivity extends AppCompatActivity
                 convertView = getLayoutInflater().inflate(android.R.layout.simple_list_item_2,
                         parent, false);
             }
-            TextView labelText = (TextView) convertView.findViewById(android.R.id.text1);
+            TextView labelText = convertView.findViewById(android.R.id.text1);
             labelText.setTextColor(Color.WHITE);
-            TextView descriptionText = (TextView) convertView.findViewById(android.R.id.text2);
+            TextView descriptionText = convertView.findViewById(android.R.id.text2);
             descriptionText.setTextColor(Color.WHITE);
             labelText.setText(entry.mLabel);
             descriptionText.setText(entry.mDescription);
@@ -135,18 +135,21 @@ public class MappingActivity extends AppCompatActivity
 
     }
 
-    private void parseExample(ActivityInfo info, ArrayList<ExampleEntry> list) {
-        try {
+    @SuppressLint("LogNotTimber")
+    private void parseExample(ActivityInfo info, ArrayList<ExampleEntry> list)
+    {
+        try
+        {
             Class<?> cls = Class.forName(info.name);
-            if (cls.isAnnotationPresent(MapTypes.class)) {
-                MapTypes annotation = (MapTypes) cls.getAnnotation(MapTypes.class);
-                list.add(new ExampleEntry(new ComponentName(info.packageName, info.name),
-                        annotation.title() != -1
-                                ? getString(annotation.title())
-                                : info.loadLabel(getPackageManager()).toString(),
+            if (cls.isAnnotationPresent(MapTypes.class))
+            {
+                MapTypes annotation = cls.getAnnotation(MapTypes.class);
+                list.add(new ExampleEntry(new ComponentName(info.packageName, info.name), annotation.title() != -1 ?
+                        getString(annotation.title()) : info.loadLabel(getPackageManager()).toString(),
                         getString(annotation.description())));
             }
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e)
+        {
             Log.e(TAG, "failed to read example info for class: " + info.name, e);
         }
     }

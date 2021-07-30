@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.glyndwrtimetablesatnav.wayfinding.WayfindingOverlayActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class TimetableContents extends AppCompatActivity
 {   // Database Variables
@@ -62,8 +63,8 @@ public class TimetableContents extends AppCompatActivity
         if (actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle(Name);
         }   // if (actionBar != null)
-        actionBar.setTitle(Name);
         //Setup Controls
         setUpControls(t_ID, XML_URL);
     }   // protected void onCreate(Bundle savedInstanceState)
@@ -106,10 +107,6 @@ public class TimetableContents extends AppCompatActivity
             if(!weekList.contains(element))
             {
                 weekList.add(element);
-            }
-            else
-            {
-                continue;
             }
         }
         Log.d("Pruned Week List = ", weekList.toString());
@@ -183,8 +180,7 @@ public class TimetableContents extends AppCompatActivity
                     String[] DialogDetails = itemValue.split(", ");
                     final String EventID = DialogDetails[4];
 
-                    ArrayList<String> eventList = new ArrayList<>();
-                    eventList = sqh.eventDetails(db, EventID, weekChosen);
+                    ArrayList<String> eventList = sqh.eventDetails(db, EventID, weekChosen);
                     String event = eventList.get(0);
                     Log.w("event = ", event);
 
@@ -200,7 +196,7 @@ public class TimetableContents extends AppCompatActivity
                         Room = dialogContents[5].replace(", ", "");
                     } catch (Exception e) {
                         Room = "";
-                        Log.w("Error w/ Room", e.getMessage());
+                        Log.w("Error w/ Room", Objects.requireNonNull(e.getMessage()));
                     }
                     String DialogName = Module + " (" + EventID + ")";
                     String DialogInfo = "Day: " + Day + "\n Start Time: " + S_Time + "\n End Time: " + E_Time +
@@ -215,7 +211,7 @@ public class TimetableContents extends AppCompatActivity
                     dialogDetails.setText(DialogInfo);
                     // Dialog Navigate Button
                     navButton = dialog2.findViewById(R.id.navButton);
-                    if (Room == "") {
+                    if (Room.equals("")) {
                         navButton.setText("Not Navigable");
                     } else {
                         final String POI = Room;

@@ -41,12 +41,12 @@ public class RegionsActivity extends FragmentActivity implements IALocationListe
         mManager.registerRegionListener(this);
         mManager.requestLocationUpdates(IALocationRequest.create(), this);
 
-        mUiVenue = (TextView) findViewById(R.id.text_view_venue);
-        mUiVenueId = (TextView) findViewById(R.id.text_view_venue_id);
-        mUiFloorPlan = (TextView) findViewById(R.id.text_view_floor_plan);
-        mUiFloorPlanId = (TextView) findViewById(R.id.text_view_floor_plan_id);
-        mUiFloorLevel = (TextView) findViewById(R.id.text_view_floor_level);
-        mUiFloorCertainty = (TextView) findViewById(R.id.text_view_floor_certainty);
+        mUiVenue = findViewById(R.id.text_view_venue);
+        mUiVenueId = findViewById(R.id.text_view_venue_id);
+        mUiFloorPlan = findViewById(R.id.text_view_floor_plan);
+        mUiFloorPlanId = findViewById(R.id.text_view_floor_plan_id);
+        mUiFloorLevel = findViewById(R.id.text_view_floor_level);
+        mUiFloorCertainty = findViewById(R.id.text_view_floor_certainty);
 
         updateUi();
     }   //  public void onCreate(Bundle savedInstanceState)

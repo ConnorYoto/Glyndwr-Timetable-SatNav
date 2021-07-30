@@ -50,8 +50,8 @@ public class SimpleActivity extends AppCompatActivity implements IALocationListe
             mShortestDisplacement = savedInstanceState.getFloat(SHORTEST_DISPLACEMENT);
         }
         setContentView(R.layout.activity_simple);
-        mLog = (TextView) findViewById(R.id.text);
-        mScrollView = (ScrollView) findViewById(R.id.scroller);
+        mLog = findViewById(R.id.text);
+        mScrollView = findViewById(R.id.scroller);
         mLocationManager = IALocationManager.create(this);
         // Register long click for sharing traceId
         ExampleUtils.shareTraceId(mLog, SimpleActivity.this, mLocationManager);
@@ -177,8 +177,8 @@ public class SimpleActivity extends AppCompatActivity implements IALocationListe
         //  Location Request Dialog
         LayoutInflater inflater = LayoutInflater.from(this);
         final View dialogLayout = inflater.inflate(R.layout.location_request_dialog, null);
-        final EditText fastestInterval = (EditText) dialogLayout.findViewById(R.id.edit_text_interval);
-        final EditText shortestDisplacement = (EditText) dialogLayout.findViewById(R.id.edit_text_displacement);
+        final EditText fastestInterval = dialogLayout.findViewById(R.id.edit_text_interval);
+        final EditText shortestDisplacement = dialogLayout.findViewById(R.id.edit_text_displacement);
         if (mFastestInterval != -1L)
         {
             fastestInterval.setText(String.valueOf(mFastestInterval));

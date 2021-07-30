@@ -1,5 +1,6 @@
 package com.example.glyndwrtimetablesatnav.imageview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -59,6 +60,7 @@ public class BlueDotView extends SubsamplingScaleImageView
         initialise();
     }   //  public BlueDotView(Context context, AttributeSet attr)
 
+    @SuppressLint("LogNotTimber")
     private void initialise()
     {
         Log.d("BluedotView", "Initialize");

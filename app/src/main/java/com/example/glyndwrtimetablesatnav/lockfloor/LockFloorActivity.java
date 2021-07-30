@@ -51,8 +51,8 @@ public class LockFloorActivity extends AppCompatActivity implements IALocationLi
             mShortestDisplacement = savedInstanceState.getFloat(SHORTEST_DISPLACEMENT);
         }
         setContentView(R.layout.activity_lockfloor);
-        mLog = (TextView) findViewById(R.id.text);
-        mScrollView = (ScrollView) findViewById(R.id.scroller);
+        mLog = findViewById(R.id.text);
+        mScrollView = findViewById(R.id.scroller);
         mLocationManager = IALocationManager.create(this);
         // Register long click for sharing traceId
         ExampleUtils.shareTraceId(mLog, LockFloorActivity.this, mLocationManager);

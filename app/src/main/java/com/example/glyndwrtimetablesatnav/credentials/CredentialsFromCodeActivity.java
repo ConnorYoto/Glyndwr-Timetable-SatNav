@@ -26,7 +26,7 @@ public class CredentialsFromCodeActivity extends AppCompatActivity implements IA
         super.onCreate(savedInstanceState);
         //  Interface
         setContentView(R.layout.text_only);
-        mLog = (TextView) findViewById(R.id.text);
+        mLog = findViewById(R.id.text);
         //  Variables
         Bundle extras = new Bundle(2);
         extras.putString(IALocationManager.EXTRA_API_KEY, getString(R.string.indooratlas_api_key));

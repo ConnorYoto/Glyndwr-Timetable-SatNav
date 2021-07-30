@@ -3,6 +3,7 @@ package com.example.glyndwrtimetablesatnav;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
@@ -31,6 +32,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class TimetablesActivity extends AppCompatActivity
 {
@@ -177,6 +179,7 @@ public class TimetablesActivity extends AppCompatActivity
         Log.w("TIMETABLE_CONTENTS_WIPED", "Timetable Contents table wiped for fresh web scrape");   // Log Message to Logcat
         new Thread(new Runnable()
         {
+            @SuppressLint("LogNotTimber")
             @Override
             public void run()
             {
@@ -189,10 +192,7 @@ public class TimetablesActivity extends AppCompatActivity
                     for (Element event : events)
                     {
                         String check = event.attr("id");
-                        if (check.equals("")) {
-                            continue;
-                        }
-                        else
+                        if (!check.equals(""))
                         {
                             String Week_ID = event.select("prettyweeks").text().replace(",", "").replace("'", "");
                             String TimetableID = T_ID;
@@ -216,7 +216,7 @@ public class TimetablesActivity extends AppCompatActivity
                 }
                 catch (IOException e)
                 {
-                    Log.w("SCRAPING ERROR",e.getMessage());
+                    Log.w("SCRAPING ERROR", Objects.requireNonNull(e.getMessage()));
                 }
             }
         }).start();

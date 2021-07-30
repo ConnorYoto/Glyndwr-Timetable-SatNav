@@ -233,7 +233,9 @@ public class WayfindingOverlayActivity extends FragmentActivity implements Googl
             if (POIS != null) {
                 externalPOI = POIS.getString("POI");
             }
-            Log.w("POI = ", externalPOI);
+            if (externalPOI != null) {
+                Log.w("POI = ", externalPOI);
+            }
             TextView POIName = findViewById(R.id.POIName);
             POIName.setText("POI: " + externalPOI) ;
         }

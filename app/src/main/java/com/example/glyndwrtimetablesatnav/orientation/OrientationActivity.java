@@ -30,15 +30,15 @@ public class OrientationActivity extends AppCompatActivity implements IALocation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orientation);
         //  Set background view to panorama
-        mGlView = (GLSurfaceView) findViewById(R.id.gl_view);
+        mGlView = findViewById(R.id.gl_view);
         mGlView.setEGLContextClientVersion(2);
         mRenderer = new OrientationRenderer(this, R.raw.panorama);
         mGlView.setRenderer(mRenderer);
         mGlView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         // Bearing Interface
-        mTextBearing = (TextView) findViewById(R.id.text_bearing);
-        mTextHeading = (TextView) findViewById(R.id.text_heading);
-        mTextOrientation = (TextView) findViewById(R.id.text_orientation);
+        mTextBearing = findViewById(R.id.text_bearing);
+        mTextHeading = findViewById(R.id.text_heading);
+        mTextOrientation = findViewById(R.id.text_orientation);
         // Initiate Location Manager
         mManager = IALocationManager.create(this);
     }   //  protected void onCreate(Bundle savedInstanceState)

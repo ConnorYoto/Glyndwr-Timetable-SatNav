@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 // Opens External Survey
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW).setData( Uri.parse("https://forms.gle/WBVqaUcBv4Dby2Lm9")); // Survey
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW).setData( Uri.parse("https://forms.gle/WsUMvPQpNJU3f9ELA")); // Survey
                 startActivity(browserIntent);
             }
         });

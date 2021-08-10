@@ -60,7 +60,8 @@
     <!-- Radio and location settings Activity -->
     <string name="locationSettingsTitle">Device radio and location settings</string>
     <string name="locationSettingsDescription">Shows how to verify Bluetooth, WiFi and location settings</string>
-    <string name="textLocationSettings">Here you can verify current WiFi, Bluetooth and location mode settings for optimal localization performance.</string>
+    <string name="textLocationSettings">Here you can verify current WiFi, Bluetooth and location mode settings for
+        optimal localization performance.</string>
     <string name="buttonCheckWiFiSetting">Check WiFi background scanning</string>
     <string name="buttonCheckBTSetting">Check Bluetooth status</string>
     <string name="buttonCheckLocationMode">Check location mode</string>
@@ -79,7 +80,8 @@
     <string name="imageViewDescription">Shows location on a floor plan displayed with ImageView.</string>
     <!-- GoogleMaps Overlay Activity-->
     <string name="googleMapsOverlayTitle">Google Maps - Indoor-outdoor</string>
-    <string name="googleMapsOverlayDescription">Shows location over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS</string>
+    <string name="googleMapsOverlayDescription">Shows location over a floor plan which is loaded as map overlay.
+        Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS</string>
     <!-- GoogleMaps Indoor Activity -->
     <string name="googleMapsIndoorTitle">Google Indoor Maps</string>
     <string name="googleMapsIndoorDescription">Demonstrates using IndoorAtlas locations on Google Indoor Maps</string>
@@ -94,7 +96,8 @@
     <string name="textOrientation">Yaw: %1$5.2f, Pitch: %2$5.2f, Roll: %3$5.2f</string>
     <!-- GoogleMaps Overlay Geofencing Activity -->
     <string name="googleMapsOverlayGeofencingTitle">Geofences on Google Maps Overlay</string>
-    <string name="googleMapsOverlayGeofencingDescription">Shows location and setting Geofences over a floor plan which is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS. </string>
+    <string name="googleMapsOverlayGeofencingDescription">Shows location and setting Geofences over a floor plan which
+        is loaded as map overlay. Indoor-outdoor detection is enabled, automatically switches between IndoorAtlas and GPS. </string>
     <!-- Foreground Service -->
     <string name="foregroundserviceTitle">Background mode (Foreground Service)</string>
     <string name="foregroundserviceDescription">IndoorAtlas background positioning using a Foreground Service.</string>
